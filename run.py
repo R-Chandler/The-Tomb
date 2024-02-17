@@ -64,6 +64,7 @@ def entrance():
     global torch_light
     run_room = True
 
+    light_level()
     print(room_data['entrance']['description'])
 
     while run_room:
@@ -74,10 +75,14 @@ def entrance():
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
-            lower_left()
+            torch_light = torch_light -1
+            print(torch_light)
+            lower_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
-            lower_right()
+            torch_light = torch_light -1
+            print(torch_light)
+            lower_left()
         elif entrance_response.capitalize() == "Investigate":
             print("\nInvestigation Details\n")
             room_data['entrance'].update({'choices':['1. East', '2. West', '3. Investigate (Complete)']})
@@ -92,6 +97,7 @@ def lower_left():
     global torch_light
     run_room = True
 
+    light_level()
     print(room_data['lower_left']['description'])
 
     while run_room:
@@ -102,9 +108,13 @@ def lower_left():
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
-            break
+            torch_light = torch_light -1
+            print(torch_light)
+            middle_left()
         elif entrance_response.capitalize() == "East":
             print("\nEast Chosen")
+            torch_light = torch_light -1
+            print(torch_light)
             entrance()
         elif entrance_response.capitalize() == "Investigate":
             print("\nInvestigation Details\n")
@@ -120,6 +130,7 @@ def lower_right():
     global torch_light
     run_room = True
 
+    light_level()
     print(room_data['lower_right']['description'])
 
     while run_room:
@@ -130,9 +141,13 @@ def lower_right():
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
-            break
+            torch_light = torch_light -1
+            print(torch_light)
+            middle_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
+            torch_light = torch_light -1
+            print(torch_light)
             entrance()
         elif entrance_response.capitalize() == "Investigate":
             print("\nInvestigation Details\n")
@@ -148,6 +163,7 @@ def middle_left():
     global torch_light
     run_room = True
 
+    light_level()
     print(room_data['middle_left']['description'])
 
     while run_room:
@@ -158,12 +174,18 @@ def middle_left():
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
+            torch_light = torch_light -1
+            print(torch_light)
             upper_left()
         elif entrance_response.capitalize() == "East":
             print("\nEast Chosen")
+            torch_light = torch_light -1
+            print(torch_light)
             center()
         elif entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
+            torch_light = torch_light -1
+            print(torch_light)
             lower_left()
         elif entrance_response.capitalize() == "Investigate":
             print("\nInvestigation Details\n")
@@ -179,6 +201,7 @@ def center():
     global torch_light
     run_room = True
 
+    light_level()
     print(room_data['center']['description'])
 
     while run_room:
@@ -189,9 +212,13 @@ def center():
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
+            torch_light = torch_light -1
+            print(torch_light)
             middle_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
+            torch_light = torch_light -1
+            print(torch_light)
             middle_left()
         elif entrance_response.capitalize() == "Investigate":
             print("\nInvestigation Details\n")
@@ -207,6 +234,7 @@ def middle_right():
     global torch_light
     run_room = True
 
+    light_level()
     print(room_data['middle_right']['description'])
 
     while run_room:
@@ -217,12 +245,18 @@ def middle_right():
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
+            torch_light = torch_light -1
+            print(torch_light)
             upper_right()
         elif entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
+            torch_light = torch_light -1
+            print(torch_light)
             lower_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
+            torch_light = torch_light -1
+            print(torch_light)
             center()
         elif entrance_response.capitalize() == "Investigate":
             print("\nInvestigation Details\n")
@@ -238,6 +272,7 @@ def upper_left():
     global torch_light
     run_room = True
 
+    light_level()
     print(room_data['upper_left']['description'])
 
     while run_room:
@@ -248,9 +283,11 @@ def upper_left():
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
+            torch_light = torch_light -1
             burial_room()
         elif entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
+            torch_light = torch_light -1
             middle_left()
         elif entrance_response.capitalize() == "Investigate":
             print("\nInvestigation Details\n")
@@ -266,6 +303,7 @@ def upper_right():
     global torch_light
     run_room = True
 
+    light_level()
     print(room_data['upper_right']['description'])
 
     while run_room:
@@ -274,11 +312,13 @@ def upper_right():
             print(choice)
         print("----------")
         entrance_response = input("What Do You Do Adventurer?:\n\n")
-        elif entrance_response.capitalize() == "South":
+        if entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
+            torch_light = torch_light -1
             middle_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
+            torch_light = torch_light -1
             burial_room()
         elif entrance_response.capitalize() == "Investigate":
             print("\nInvestigation Details\n")
@@ -294,6 +334,7 @@ def burial_room():
     global torch_light
     run_room = True
 
+    light_level()
     print(room_data['burial_room']['description'])
 
     while run_room:
@@ -304,12 +345,15 @@ def burial_room():
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
+            torch_light = torch_light -1
             antechamber()
         elif entrance_response.capitalize() == "East":
             print("\nEast Chosen")
+            torch_light = torch_light -1
             upper_left()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
+            torch_light = torch_light -1
             upper_right()
         elif entrance_response.capitalize() == "Investigate":
             print("\nInvestigation Details\n")
@@ -325,6 +369,7 @@ def antechamber():
     global torch_light
     run_room = True
 
+    light_level()
     print(room_data['antechamber']['description'])
 
     while run_room:
@@ -335,6 +380,7 @@ def antechamber():
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
+            torch_light = torch_light -1
             burial_room()
         elif entrance_response.capitalize() == "Investigate":
             print("\nInvestigation Details\n")
@@ -342,7 +388,27 @@ def antechamber():
         else:
             print("Not a valid option, try again!\n")
 
+"""
+Light level function to check torch level as each room is entered.
+"""
 
+def light_level():
+    global torch_light
+
+    if torch_light > 3:
+        print("\nBright\n")
+    elif torch_light >= 1:
+        print("\ndim light\n")
+    else:
+        game_over()
+    return
+
+"""
+Game Over function to handle when the player reaches a game over scenario.
+"""
+
+def game_over():
+    print("\nGAME OVER\n")
 
 
 
