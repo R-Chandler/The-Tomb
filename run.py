@@ -58,8 +58,26 @@ room_data = {
 
 def entrance():
     print(room_data['entrance']['description'])
+    print("----------")
     for choice in room_data['entrance']['choices']:
         print(choice)
+    print("----------")
+    entrance_response = input("What Do You Do Adventurer?:\n\n")
+    if entrance_response == "East":
+        print("\nEast Chosen")
+        global torch_light
+        torch_light = torch_light -1
+        print(torch_light) 
+    elif entrance_response == "West":
+        print("\nWest Chosen")
+        torch_light = torch_light -1
+        print(torch_light)
+    elif entrance_response == "Investigate":
+        print("\nInvestigation Details")
+    else:
+        print("Not a valid option\n")
+        for choice in room_data['entrance']['choices']:
+            print(choice)
 
 
 
