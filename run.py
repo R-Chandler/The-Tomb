@@ -140,6 +140,209 @@ def lower_right():
         else:
             print("Not a valid option, try again!\n")
 
+"""
+middle_left function to handle the adventure in this room
+"""
+
+def middle_left():
+    global torch_light
+    run_room = True
+
+    print(room_data['middle_left']['description'])
+
+    while run_room:
+        print("----------")
+        for choice in room_data['middle_left']['choices']:
+            print(choice)
+        print("----------")
+        entrance_response = input("What Do You Do Adventurer?:\n\n")
+        if entrance_response.capitalize() == "North":
+            print("\nNorth Chosen")
+            upper_left()
+        elif entrance_response.capitalize() == "East":
+            print("\nEast Chosen")
+            center()
+        elif entrance_response.capitalize() == "South":
+            print("\nSouth Chosen")
+            lower_left()
+        elif entrance_response.capitalize() == "Investigate":
+            print("\nInvestigation Details\n")
+            room_data['middle_left'].update({'choices':['1. North', '2. East', '3. South', '4. Investigate (Complete)']})
+        else:
+            print("Not a valid option, try again!\n")
+
+"""
+center function to handle the adventure in this room
+"""
+
+def center():
+    global torch_light
+    run_room = True
+
+    print(room_data['center']['description'])
+
+    while run_room:
+        print("----------")
+        for choice in room_data['center']['choices']:
+            print(choice)
+        print("----------")
+        entrance_response = input("What Do You Do Adventurer?:\n\n")
+        if entrance_response.capitalize() == "East":
+            print("\nEast Chosen")
+            middle_right()
+        elif entrance_response.capitalize() == "West":
+            print("\nWest Chosen")
+            middle_left()
+        elif entrance_response.capitalize() == "Investigate":
+            print("\nInvestigation Details\n")
+            room_data['center'].update({'choices':['1. East', '2. West', '3. Investigate (Complete)']})
+        else:
+            print("Not a valid option, try again!\n")
+
+"""
+middle_right function to handle the adventure in this room
+"""
+
+def middle_right():
+    global torch_light
+    run_room = True
+
+    print(room_data['middle_right']['description'])
+
+    while run_room:
+        print("----------")
+        for choice in room_data['middle_right']['choices']:
+            print(choice)
+        print("----------")
+        entrance_response = input("What Do You Do Adventurer?:\n\n")
+        if entrance_response.capitalize() == "North":
+            print("\nNorth Chosen")
+            upper_right()
+        elif entrance_response.capitalize() == "South":
+            print("\nSouth Chosen")
+            lower_right()
+        elif entrance_response.capitalize() == "West":
+            print("\nWest Chosen")
+            center()
+        elif entrance_response.capitalize() == "Investigate":
+            print("\nInvestigation Details\n")
+            room_data['middle_right'].update({'choices':['1. North', '2. South', '3. West', '4. Investigate (Complete)']})
+        else:
+            print("Not a valid option, try again!\n")
+
+"""
+upper_left function to handle the adventure in this room
+"""
+
+def upper_left():
+    global torch_light
+    run_room = True
+
+    print(room_data['upper_left']['description'])
+
+    while run_room:
+        print("----------")
+        for choice in room_data['upper_left']['choices']:
+            print(choice)
+        print("----------")
+        entrance_response = input("What Do You Do Adventurer?:\n\n")
+        if entrance_response.capitalize() == "East":
+            print("\nEast Chosen")
+            burial_room()
+        elif entrance_response.capitalize() == "South":
+            print("\nSouth Chosen")
+            middle_left()
+        elif entrance_response.capitalize() == "Investigate":
+            print("\nInvestigation Details\n")
+            room_data['upper_left'].update({'choices':['1. East', '2. South', '3. Investigate (Complete)']})
+        else:
+            print("Not a valid option, try again!\n")
+
+"""
+upper_right function to handle the adventure in this room
+"""
+
+def upper_right():
+    global torch_light
+    run_room = True
+
+    print(room_data['upper_right']['description'])
+
+    while run_room:
+        print("----------")
+        for choice in room_data['upper_right']['choices']:
+            print(choice)
+        print("----------")
+        entrance_response = input("What Do You Do Adventurer?:\n\n")
+        elif entrance_response.capitalize() == "South":
+            print("\nSouth Chosen")
+            middle_right()
+        elif entrance_response.capitalize() == "West":
+            print("\nWest Chosen")
+            burial_room()
+        elif entrance_response.capitalize() == "Investigate":
+            print("\nInvestigation Details\n")
+            room_data['upper_right'].update({'choices':['1. South', '2. West', '3. Investigate (Complete)']})
+        else:
+            print("Not a valid option, try again!\n")
+
+"""
+burial_room function to handle the adventure in this room
+"""
+
+def burial_room():
+    global torch_light
+    run_room = True
+
+    print(room_data['burial_room']['description'])
+
+    while run_room:
+        print("----------")
+        for choice in room_data['burial_room']['choices']:
+            print(choice)
+        print("----------")
+        entrance_response = input("What Do You Do Adventurer?:\n\n")
+        if entrance_response.capitalize() == "North":
+            print("\nNorth Chosen")
+            antechamber()
+        elif entrance_response.capitalize() == "East":
+            print("\nEast Chosen")
+            upper_left()
+        elif entrance_response.capitalize() == "West":
+            print("\nWest Chosen")
+            upper_right()
+        elif entrance_response.capitalize() == "Investigate":
+            print("\nInvestigation Details\n")
+            room_data['burial_room'].update({'choices':['1. North', '2. East', '3. West', '4. Investigate (Complete)']})
+        else:
+            print("Not a valid option, try again!\n")
+
+"""
+antechamber function to handle the adventure in this room
+"""
+
+def antechamber():
+    global torch_light
+    run_room = True
+
+    print(room_data['antechamber']['description'])
+
+    while run_room:
+        print("----------")
+        for choice in room_data['antechamber']['choices']:
+            print(choice)
+        print("----------")
+        entrance_response = input("What Do You Do Adventurer?:\n\n")
+        if entrance_response.capitalize() == "South":
+            print("\nSouth Chosen")
+            burial_room()
+        elif entrance_response.capitalize() == "Investigate":
+            print("\nInvestigation Details\n")
+            room_data['antechamber'].update({'choices':['1. South', '2. Investigate (Complete)']})
+        else:
+            print("Not a valid option, try again!\n")
+
+
 
 
 
