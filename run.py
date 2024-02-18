@@ -10,6 +10,7 @@ weapon = ""
 torch_light = 5
 inventory = []
 score = 0
+center_monster = "Alive"
 
 """
 Nested dictionary containing all the room descriptions, room choices and items.
@@ -69,16 +70,19 @@ Entrance function to handle the first room
 
 def entrance():
     global torch_light
+    global score
+
     run_room = True
 
+    print(f"\nScore: {score}                                   Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['entrance']['description'])
 
     while run_room:
-        print("----------")
+        print("====================")
         for choice in room_data['entrance']['choices']:
             print(choice)
-        print("----------")
+        print("====================")
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
@@ -92,6 +96,7 @@ def entrance():
             lower_left()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
+            score = score + 100
             room_data['entrance'].update({'choices':['1. East', '2. West', '3. Search (Complete)']})
         else:
             print("Not a valid option, try again!\n")
@@ -102,16 +107,19 @@ lower_left function to handle the adventure in this room
 
 def lower_left():
     global torch_light
+    global score
+
     run_room = True
 
+    print(f"\nScore: {score}                                   Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['lower_left']['description'])
 
     while run_room:
-        print("----------")
+        print("====================")
         for choice in room_data['lower_left']['choices']:
             print(choice)
-        print("----------")
+        print("====================")
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
@@ -125,6 +133,7 @@ def lower_left():
             entrance()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
+            score = score + 1000
             room_data['lower_left'].update({'choices':['1. North', '2. East', '3. Search (Complete)']})
         else:
             print("Not a valid option, try again!\n")
@@ -135,16 +144,19 @@ lower_right function to handle the adventure in this room
 
 def lower_right():
     global torch_light
+    global score
+
     run_room = True
 
+    print(f"\nScore: {score}                                   Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['lower_right']['description'])
 
     while run_room:
-        print("----------")
+        print("====================")
         for choice in room_data['lower_right']['choices']:
             print(choice)
-        print("----------")
+        print("====================")
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
@@ -158,6 +170,8 @@ def lower_right():
             entrance()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
+            torch_light = torch_light + 3
+            score = score + 300
             room_data['lower_right'].update({'choices':['1. North', '2. West', '3. Search (Complete)']})
         else:
             print("Not a valid option, try again!\n")
@@ -168,16 +182,19 @@ middle_left function to handle the adventure in this room
 
 def middle_left():
     global torch_light
+    global score
+
     run_room = True
 
+    print(f"\nScore: {score}                                   Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['middle_left']['description'])
 
     while run_room:
-        print("----------")
+        print("====================")
         for choice in room_data['middle_left']['choices']:
             print(choice)
-        print("----------")
+        print("====================")
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
@@ -196,36 +213,42 @@ def middle_left():
             lower_left()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
+            torch_light = torch_light + 3
+            score = score + 100
             room_data['middle_left'].update({'choices':['1. North', '2. East', '3. South', '4. Search (Complete)']})
         else:
             print("Not a valid option, try again!\n")
 
 """
-center function to handle the adventure in this room
+center function to handle the adventure in this room when the monster is present
 """
 
 def center():
     global torch_light
+    global score
     global weapon
-    monster = "Alive"
+    global center_monster
+
     run_room = True
 
+    print(f"\nScore: {score}                                   Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['center']['description'])
 
     while run_room:
-        if monster == "Alive":
-            print("==========")
+        if center_monster == "Alive":
+            print("====================")
             for choice in room_data['center']['choices']:
                 print(choice)
-            print("==========")
+            print("====================")
             entrance_response = input("What Do You Do Adventurer?:\n\n")
             if entrance_response.capitalize() == "Fight":
                 print("\nYou stand tall facing the advancing beast, the torch light reflecting back at you in its menacing eyes")
-                print("==========")
+                print("====================")
                 if weapon == "Jewelled Sword":
                     print("\nMonster killed\n")
-                    monster = "Dead"
+                    center_monster = "Dead"
+                    score = score + 2000
                     clear()
                     center_clear()
                 else:
@@ -234,10 +257,10 @@ def center():
             elif entrance_response.capitalize() == "Flee":
                 print("\nYou slowly back away from the terrifying creature as it gets ready to pounce to you sprint toward the exit!")
                 print("Which way to you go?")
-                print("==========")
+                print("====================")
                 for choice in room_data['center']['flee_choices']:
                     print(choice)
-                print("==========")
+                print("====================")
                 flee_input = input("which way do you go?:\n\n")
                 if flee_input.capitalize() == "East":
                     print("\nEast Chosen")
@@ -256,32 +279,40 @@ def center():
         else:
             center_clear()
 
+"""
+center function to handle the adventure in this room when the monster is not present
+"""
+
 
 def center_clear():
     global torch_light
+    global score
+
     run_room = True
 
+    print(f"\nScore: {score}                                   Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['center_clear']['description'])
 
     while run_room:
-        print("----------")
+        print("====================")
         for choice in room_data['center_clear']['choices']:
             print(choice)
-        print("----------")
+        print("====================")
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
             torch_light = torch_light -1
             clear()
-            lower_right()
+            middle_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
             torch_light = torch_light -1
             clear()
-            lower_left()
+            middle_left()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
+            score = score + 500
             room_data['center_clear'].update({'choices':['1. East', '2. West', '3. Search (Complete)']})
         else:
             print("Not a valid option, try again!\n")
@@ -294,16 +325,20 @@ middle_right function to handle the adventure in this room
 
 def middle_right():
     global torch_light
+    global weapon
+    global score
+
     run_room = True
 
+    print(f"\nScore: {score}                                   Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['middle_right']['description'])
 
     while run_room:
-        print("----------")
+        print("====================")
         for choice in room_data['middle_right']['choices']:
             print(choice)
-        print("----------")
+        print("====================")
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
@@ -322,6 +357,8 @@ def middle_right():
             center()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
+            score = score + 500
+            weapon = "Jewelled Sword"
             room_data['middle_right'].update({'choices':['1. North', '2. South', '3. West', '4. Search (Complete)']})
         else:
             print("Not a valid option, try again!\n")
@@ -332,16 +369,20 @@ upper_left function to handle the adventure in this room
 
 def upper_left():
     global torch_light
+    global weapon
+    global score
+
     run_room = True
 
+    print(f"\nScore: {score}                                   Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['upper_left']['description'])
 
     while run_room:
-        print("----------")
+        print("====================")
         for choice in room_data['upper_left']['choices']:
             print(choice)
-        print("----------")
+        print("====================")
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
@@ -355,6 +396,8 @@ def upper_left():
             middle_left()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
+            score = score + 1000
+            weapon = "Jewelled Sword"
             room_data['upper_left'].update({'choices':['1. East', '2. South', '3. Search (Complete)']})
         else:
             print("Not a valid option, try again!\n")
@@ -365,16 +408,19 @@ upper_right function to handle the adventure in this room
 
 def upper_right():
     global torch_light
+    global score
+
     run_room = True
 
+    print(f"\nScore: {score}                                   Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['upper_right']['description'])
 
     while run_room:
-        print("----------")
+        print("====================")
         for choice in room_data['upper_right']['choices']:
             print(choice)
-        print("----------")
+        print("====================")
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
@@ -388,6 +434,7 @@ def upper_right():
             burial_room()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
+            score = score + 1000
             room_data['upper_right'].update({'choices':['1. South', '2. West', '3. Search (Complete)']})
         else:
             print("Not a valid option, try again!\n")
@@ -398,16 +445,19 @@ burial_room function to handle the adventure in this room
 
 def burial_room():
     global torch_light
+    global score
+
     run_room = True
 
+    print(f"\nScore: {score}                                   Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['burial_room']['description'])
 
     while run_room:
-        print("----------")
+        print("====================")
         for choice in room_data['burial_room']['choices']:
             print(choice)
-        print("----------")
+        print("====================")
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
@@ -421,6 +471,8 @@ def burial_room():
             upper_right()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
+            score = score + 2000
+            torch_light = torch_light + 3
             room_data['burial_room'].update({'choices':['1. North', '2. East', '3. West', '4. Search (Complete)']})
         else:
             print("Not a valid option, try again!\n")
@@ -431,16 +483,19 @@ antechamber function to handle the adventure in this room
 
 def antechamber():
     global torch_light
+    global score
+
     run_room = True
 
+    print(f"\nScore: {score}                                   Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['antechamber']['description'])
 
     while run_room:
-        print("----------")
+        print("====================")
         for choice in room_data['antechamber']['choices']:
             print(choice)
-        print("----------")
+        print("====================")
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
@@ -462,10 +517,12 @@ Light level function to check torch level as each room is entered.
 def light_level():
     global torch_light
 
-    if torch_light > 3:
-        print("\nBright\n")
-    elif torch_light >= 1:
-        print("\ndim light\n")
+    if torch_light >= 3:
+        return
+    elif torch_light == 2:
+        print("\nThe light of your torch is dimming, you had better find another one soon or the darkness of the tomb will take you!\n")
+    elif torch_light == 1:
+        print("\nYour torch is going to go out any minute! there has to be something you can use hidden around this tomb!")
     else:
         game_over()
     return
@@ -478,5 +535,4 @@ def game_over():
     print("\nGAME OVER\n")
 
 
-center()
 entrance()
