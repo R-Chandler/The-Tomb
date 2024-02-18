@@ -8,6 +8,7 @@ from time import sleep
 """
 Global variables to be used throughout every room of the game.
 """
+player = ""
 weapon = ""
 torch_light = 5
 inventory = []
@@ -310,6 +311,7 @@ def center():
     global torch_light
     global score
     global weapon
+    global player
 
     run_room = True
 
@@ -335,8 +337,8 @@ def center():
                     clear()
                     center_clear()
                 else:
-                    print("GAME OVER!")
-                    break
+                    player = "dead"
+                    game_over()
             elif entrance_response.capitalize() == "Flee":
                 print("\nYou slowly back away from the terrifying creature as it gets ready to pounce to you sprint toward the exit!")
                 print("Which way to you go?")
@@ -620,7 +622,7 @@ def antechamber():
             clear()
             burial_room()
         elif entrance_response.capitalize() == "Escape":
-            print("YOU WIN!")
+            winner()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
             room_data['antechamber'].update({'choices':['1. South', '2. Search (Complete)']})
@@ -639,7 +641,7 @@ def light_level():
     elif torch_light == 2:
         print("\nThe light of your torch is dimming, you had better find another one soon or the darkness of the tomb will take you!\n")
     elif torch_light == 1:
-        print("\nYour torch is going to go out any minute! there has to be something you can use hidden around this tomb!")
+        print("\nYour torch is going to go out any minute! there has to be something you can use hidden around this tomb!\n")
     else:
         game_over()
     return
@@ -649,6 +651,32 @@ Game Over function to handle when the player reaches a game over scenario.
 """
 
 def game_over():
+    global player
+    global torch_light
+    global score
+
+    clear()
     print("\nGAME OVER\n")
+    print(f"\nYour final score was: {score}\n")
+    if player == "dead":
+        print("\nYou were slain by a beast in the tomb!\n")
+    elif torch_light == 0:
+        print("\nYour torch has gone out! surrounded by darkness you succumb to the dangers of the tomb!\n")
+    else:
+        print("\nWhat happened?\n")
+    print("\n\n Would you like to try again?\n")
+    input("Press Any Key\n")
+
+"""
+Winner function to control what happens when the player escapes the tomb.
+"""
+def winner():
+    global score
+
+    print("\nCONGRATULATIONS!\n")
+    print("====================")
+    print(f"\nYou escaped the tomb with your life and you obtained a final score of: {score}\n")
+    print("\nWish to try again?\n")
+
 
 entrance()
