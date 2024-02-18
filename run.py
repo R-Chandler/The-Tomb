@@ -16,7 +16,13 @@ center_monster = "Alive"
 """
 Instructions information to be called in the information screen
 """
-instructions = []
+how_to = ["\n\n Welcome intrepid explorer, you have been searching for the burial place of an ancient Pharoah for a very long time.\n Recent discoveries lead you to a remote location just outside the Valley of the Kings in Egypt.\n Your hard work has rewarded with the sight of the sealed stone doors you had always dreamed of seeing.\n You pry the doors open and walk inside...",
+ "\n\nTHE TOMB is a text adventure game where your chocies will lead you to succeed in the discovery of the long lost Pharoah Raetis,\nor it can also become your tomb.",
+  "As you move through the tomb, a decription of the room you are in will be displayed followed by a list of options you can do while in that area of the tomb.\n\nEnter the instruction as written to carry out that choice and progress through the tomb to find your fame and fortune.\n\n",
+   "Be aware that there are hidden options leading to special rewards so do not be afraid to search for secrets.\n",
+    "Be warned that your torch is also there to keep you safe, if the light goes out so do your chances of escaping the tomb.\nKeep a look out for opportunities to extend it's life as you explore.\n",
+     "Your score and level of torch light wil be tracked at the top of each room, find treasures to increase your score.\n\n"
+    "GOOD LUCK!\n"]
 
 
 
@@ -28,48 +34,48 @@ Nested dictionary containing all the room descriptions, room choices and items.
 
 room_data = {
     'entrance': {
-        'description': "As you cross the threshold to the tomb and move cautiously down the stone stairs you feel a stone shift under your foot making a soft click. Suddenly the door behind you slams shut with a loud crash. In the pitch darkness you light a torch and as your eyes adjust to the new gloom you see two doors leading deeper into the tomb.",
+        'description': "As you cross the threshold to the tomb and move cautiously down the stone stairs you feel a stone shift under your foot making a soft click.\nSuddenly the door behind you slams shut with a loud crash. In the pitch darkness you light a torch,\nas your eyes adjust to the new gloom you see two doors leading deeper into the tomb.",
         'choices': ['1. East', '2. West', '3. Search']
     },
     'lower_left': {
-        'description': "A low hiss greets you as you step through the threshold. Coiled serpent motifs adorn the walls, their eyes gleaming with a sense of knowing. A winding path leads deeper into the chamber, guarded by stone snake statues that seem to slither in the shadows. The air is cool and filled with a faint aroma of ancient oils. In the center lies a mysterious pool reflecting the glow of a lone, suspended orb.",
+        'description': "A low hiss greets you as you step through the threshold. Coiled serpent motifs adorn the walls, their eyes gleaming with a sense of knowing.\nA winding path leads deeper into the chamber, guarded by stone snake statues that seem to slither in the shadows.\nThe air is cool and filled with a faint aroma of ancient oils. In the center lies a mysterious pool reflecting the glow of a lone, suspended orb.",
         'choices': ["1. North", "2. East", "3. Search"],
     },
     'lower_right': {
-        'description': "As you enter the Chamber of Eternal Flames, a warm gust of air tinged with the scent of burning incense envelops you. Torches flicker with an ethereal flame, casting dancing shadows on the crimson walls adorned with depictions of phoenixes and fiery serpents. In the center, a brazier burns with an unquenchable fire.",
+        'description': "As you enter the Chamber of Eternal Flames, a warm gust of air tinged with the scent of burning incense envelops you.\nTorches flicker with an ethereal flame, casting dancing shadows on the crimson walls adorned with depictions of phoenixes and fiery serpents.\nIn the center, a brazier burns with an unquenchable fire.",
         'choices': ["1. North", "2. West", "3. Search"]
     },
     'middle_left': {
-        'description': "In this new room a mysterious darkness cloaks the space. Dimly lit torches barely pierce the gloom, revealing walls adorned with intricate shadow play. The air is thick with ancient incense. Silhouettes seem to dance along the walls as you move with the torch. You get the unnerving feeling that you are being watched, a crashing sound comes from the eastern passage.",
+        'description': "In this new room a mysterious darkness cloaks the space. Dimly lit torches barely pierce the gloom, revealing walls adorned with intricate shadow play.\nThe air is thick with ancient incense. Silhouettes seem to dance along the walls as you move with the torch.\nYou get the unnerving feeling that you are being watched, a crashing sound comes from the eastern passage.",
         'choices': ["1. North", "2. East", "3. South", "4. Search"]
     },
     'center': {
-        'description': "You cautiously step into what seems like a crypt, the air becomes thick and oppressive. The walls are adorned with carvings of Ammit, a monstrous amalgamation of lion, hippopotamus, and crocodile. Eerie whispers echo through the chamber, and a growl rumbles in the shadows. In the center of the room lies an ancient altar, upon which rests a forbidden relic. As you step towards the altar a shadowed figure slowly climbs onto it, showing you its many razor teeth in your torch light with a snarl.",
+        'description': "You cautiously step into what seems like a crypt, the air becomes thick and oppressive. The walls are adorned with carvings of Ammit,\na monstrous amalgamation of lion, hippopotamus, and crocodile. Eerie whispers echo through the chamber, and a growl rumbles in the shadows.\nIn the center of the room lies an ancient altar, upon which rests a forbidden relic.\nAs you step towards the altar a shadowed figure slowly climbs onto it, showing you its many razor teeth in your torch light with a snarl.",
         'choices': ["1. fight", "2. Flee"],
         'flee_choices': ["1. East", "2. West"]
     },
     'center_clear': {
-        'description': "You cautiously step into what seems like a crypt, the air becomes thick and oppressive. The walls are adorned with carvings of Ammit, a monstrous amalgamation of lion, hippopotamus, and crocodile. Eerie whispers echo through the chamber, and a growl rumbles in the shadows. In the center of the room lies an ancient altar, a slain beast lays motionless on the floor.",
+        'description': "You walk confidently back into the room that previously scared you beyond belief.\nThe unmoving body of the nameless beast lays harmlessly where you left it. You now have time to marvel at the beauty of the room,\nCanpoic jars line the southern wall under a large tapestry celebrating the Pharaohs achievements in life.",
         'choices': ["1. East", "2. West", "3. Search"]
     },
     'middle_right': {
-        'description': "Upon entering the Chamber, an uncanny silence blankets the room. The walls are adorned with faded murals portraying courtly intrigues and secrets of the ancient kingdom. Hieroglyphic whispers seem to emerge from the very stone, telling tales of conspiracies and hidden truths. A central dais holds an ancient throne. Upon the throne sits an armour clad statue, in his outstretched hands something metal glimmers in the soft torch light. A muffled groan emanates from the western passageway.",
+        'description': "Upon entering the Chamber, an uncanny silence blankets the room.\nThe walls are adorned with faded murals portraying courtly intrigues and secrets of the ancient kingdom.\nHieroglyphic whispers seem to emerge from the very stone, telling tales of conspiracies and hidden truths.\nA central dais holds an ancient throne.\nUpon the throne sits an armour clad statue, in his outstretched hands something metal glimmers in the soft torch light.\nA muffled groan emanates from the western passageway.",
         'choices': ["1. North", "2. South", "3. West", "4. Search"]
     },
     'upper_left': {
-        'description': "As you step into the chamber the scent of ancient parchment fills your nostrils, your torchlight flickers across the walls revealing that every inch is covered in hieroglyphs, telling tales of conquests and rituals that have long been forgotten. An ominous statue stands at the north end of the room.",
+        'description': "As you step into the chamber the scent of ancient parchment fills your nostrils,\nyour torchlight flickers across the walls revealing that every inch is covered in hieroglyphs, telling tales of conquests and rituals that have long been forgotten.\nAn ominous statue stands at the north end of the room.",
         'choices': ["1. East", "2. South", "3. Search"]
     },
     'upper_right': {
-        'description': "Entering this grand hall you notice your footsteps are louder, echoing around the immense room. The walls are lined with large statues of Anubis, the eyes of the jackal headed god seem to follow your every move. A pedestal standing atop a small staircase at the far end of the room catches your attention.",
+        'description': "Entering this grand hall you notice your footsteps are louder, echoing around the immense room.\nThe walls are lined with large statues of Anubis, the eyes of the jackal headed god seem to follow your every move.\nA pedestal standing atop a small staircase at the far end of the room catches your attention.",
         'choices': ["1. South", "2. West", "3. Search"]
     },
     'burial_room': {
-        'description': "This is it! You have found the room that has eluded archaeologists for centuries. You find yourself standing in the burial chamber of the tomb, the walls are plastered with gold and jewels. Great stone tablets stand against the eastern wall with stories carved into them depicting the great deeds of the fallen pharaoh. Looking to the north you see the grand sarcophagus standing in the middle of the room, protection spells are engraved along the seal, they seem to glow and then you notice it… a beam of light is shining upon the lid coming from an open shaft on the ceiling… Could that be a way out?",
+        'description': "This is it! You have found the room that has eluded archaeologists for centuries.\nYou find yourself standing in the burial chamber of the tomb, the walls are plastered with gold and jewels.\nGreat stone tablets stand against the eastern wall with stories carved into them depicting the great deeds of the fallen pharaoh.\nLooking to the north you see the grand sarcophagus standing in the middle of the room,\nprotection spells are engraved along the seal, they seem to glow and then you notice it… a beam of light is shining upon the lid coming from an open shaft on the ceiling…\nCould that be a way out?",
         'choices': ["1. East", "2. West", "3. Search", "4. Escape"]
     },
     'antechamber': {
-        'description': "With the sceptre inserted the wall begins to rumble, as you step back, loose stone and sand tumbles from the wall and with an almighty crunching sound the wall begins to part. When the newly formed opening settles into a wide doorway your jaw drops open, the glow from the immeasurably large pile of treasure fills the burial room. You are going to be the richest person alive.",
+        'description': "With the sceptre inserted the wall begins to rumble, as you step back, loose stone and sand tumbles from the wall.\nWith an almighty crunching sound the wall begins to part. When the newly formed opening settles into a wide doorway your jaw drops open.\nThe glow from the immeasurably large pile of treasure fills the burial room.\nYou are going to be the richest person alive.",
         'choices': ["1. Loot", "2. Escape"]
     }
 }
@@ -90,13 +96,18 @@ def player():
         else:
             clear()
             print("===================")
-            print(f"\nWelcome {player_name}, you have found your way to a long lost tomb.")
+            print(f"\nWelcome {player_name}, are you prepared to face the tomb?")
             instructions()
             break
 
 
 def instructions():
-    print("\ninstructions\n")
+    for steps in how_to:
+        print(steps)
+    print("PRESS ANY KEY TO CONTINUE")
+    input()
+    clear()
+    entrance()
 
 
 
@@ -570,4 +581,4 @@ Game Over function to handle when the player reaches a game over scenario.
 def game_over():
     print("\nGAME OVER\n")
 
-splash_screen()
+instructions()
