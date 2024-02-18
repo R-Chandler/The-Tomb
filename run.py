@@ -32,7 +32,12 @@ room_data = {
     },
     'center': {
         'description': "You cautiously step into what seems like a crypt, the air becomes thick and oppressive. The walls are adorned with carvings of Ammit, a monstrous amalgamation of lion, hippopotamus, and crocodile. Eerie whispers echo through the chamber, and a growl rumbles in the shadows. In the center of the room lies an ancient altar, upon which rests a forbidden relic. As you step towards the altar a shadowed figure slowly climbs onto it, showing you its many razor teeth in your torch light with a snarl.",
-        'choices': ["1. fight", "2. Flee"]
+        'choices': ["1. fight", "2. Flee"],
+        'flee_choices': ["1. East", "2. West"]
+    },
+    'center_clear': {
+        'description': "You cautiously step into what seems like a crypt, the air becomes thick and oppressive. The walls are adorned with carvings of Ammit, a monstrous amalgamation of lion, hippopotamus, and crocodile. Eerie whispers echo through the chamber, and a growl rumbles in the shadows. In the center of the room lies an ancient altar, a slain beast lays motionless on the floor.",
+        'choices': ["1. East", "2. West", "3. Search"]
     },
     'middle_right': {
         'description': "Upon entering the Chamber, an uncanny silence blankets the room. The walls are adorned with faded murals portraying courtly intrigues and secrets of the ancient kingdom. Hieroglyphic whispers seem to emerge from the very stone, telling tales of conspiracies and hidden truths. A central dais holds an ancient throne. Upon the throne sits an armour clad statue, in his outstretched hands something metal glimmers in the soft torch light. A muffled groan emanates from the western passageway.",
@@ -199,32 +204,82 @@ center function to handle the adventure in this room
 
 def center():
     global torch_light
+    global weapon
+    monster = "Alive"
     run_room = True
 
     light_level()
     print(room_data['center']['description'])
 
     while run_room:
+        if monster == "Alive":
+            print("==========")
+            for choice in room_data['center']['choices']:
+                print(choice)
+            print("==========")
+            entrance_response = input("What Do You Do Adventurer?:\n\n")
+            if entrance_response.capitalize() == "Fight":
+                print("\nYou stand tall facing the advancing beast, the torch light reflecting back at you in its menacing eyes")
+                print("==========")
+                if weapon == "Jewelled Sword":
+                    print("\nMonster killed\n")
+                    monster = "Dead"
+                    center_clear()
+                else:
+                    print("GAME OVER!")
+                    break
+            elif entrance_response.capitalize() == "Flee":
+                print("\nYou slowly back away from the terrifying creature as it gets ready to pounce to you sprint toward the exit!")
+                print("Which way to you go?")
+                print("==========")
+                for choice in room_data['center']['flee_choices']:
+                    print(choice)
+                print("==========")
+                flee_input = input("which way do you go?:\n\n")
+                if flee_input.capitalize() == "East":
+                    print("\nEast Chosen")
+                    torch_light = torch_light -1
+                    middle_right()
+                elif flee_input.capitalize() == "West":
+                    print("West Chosen")
+                    torch_light = torch_light -1
+                    middle_left()
+                else:
+                    print("Not a valid option, try again!\n")
+            else:
+                    print("Not a valid option, try again!\n")
+        else:
+            center_clear()
+
+
+def center_clear():
+    global torch_light
+    run_room = True
+
+    light_level()
+    print(room_data['center_clear']['description'])
+
+    while run_room:
         print("----------")
-        for choice in room_data['center']['choices']:
+        for choice in room_data['center_clear']['choices']:
             print(choice)
         print("----------")
         entrance_response = input("What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
             torch_light = torch_light -1
-            print(torch_light)
-            middle_right()
+            lower_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
             torch_light = torch_light -1
-            print(torch_light)
-            middle_left()
-        elif entrance_response.capitalize() == "Investigate":
+            lower_left()
+        elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
-            room_data['center'].update({'choices':['1. East', '2. West', '3. Investigate (Complete)']})
+            room_data['center_clear'].update({'choices':['1. East', '2. West', '3. Search (Complete)']})
         else:
             print("Not a valid option, try again!\n")
+
+
 
 """
 middle_right function to handle the adventure in this room
@@ -409,5 +464,5 @@ def game_over():
     print("\nGAME OVER\n")
 
 
-
+center()
 entrance()
