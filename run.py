@@ -61,7 +61,7 @@ room_data = {
         'monster': "alive"
     },
     'center_clear': {
-        'description': "You walk confidently back into the room that previously scared you beyond belief.\nThe unmoving body of the nameless beast lays harmlessly where you left it. You now have time to marvel at the beauty of the room,\nCanpoic jars line the southern wall under a large tapestry celebrating the Pharaohs achievements in life.",
+        'description': "The unmoving body of the nameless beast lays harmlessly on the floor. You now have time to marvel at the beauty of the room,\nCanpoic jars line the southern wall under a large tapestry celebrating the Pharaohs achievements in life.",
         'choices': ["1. East", "2. West", "3. Search"],
         'searched': False
     },
@@ -96,10 +96,10 @@ room_data = {
 def splash_screen():
     tprint("\n                               THE", font="small")
     tprint("TOMB", font="block")
-    player()
+    player_id()
 
 
-def player():
+def player_id():
     while True:
         player = input("What is your name Adventurer?:\n\n")
         player_name = player.replace(" ", "")
@@ -666,6 +666,8 @@ def game_over():
         print("\nWhat happened?\n")
     print("\n\n Would you like to try again?\n")
     input("Press Any Key\n")
+    clear()
+    reset_game()
 
 """
 Winner function to control what happens when the player escapes the tomb.
@@ -677,6 +679,62 @@ def winner():
     print("====================")
     print(f"\nYou escaped the tomb with your life and you obtained a final score of: {score}\n")
     print("\nWish to try again?\n")
+    clear()
+    reset_game()
+
+"""
+Reset function to return all dictionary entries and global functions to original values, then start the game again from the title screen.
+"""
+def reset_game():
+    global player
+    global weapon
+    global torch_light
+    global inventory
+    global score
+
+    print("\nResetting Game...\n")
+
+    player = "alive"
+    weapon = ""
+    torch_light = 5
+    inventory = []
+    score = 0
+
+    room_data['entrance'].update({'choices':['1. East', '2. West', '3. Search']})
+    room_data['lower_left'].update({'choices':["1. North", "2. East", "3. Search"]})
+    room_data['lower_right'].update({'choices':["1. North", "2. West", "3. Search"]})
+    room_data['middle_left'].update({'choices':["1. North", "2. East", "3. South", "4. Search"]})
+    room_data['center_clear'].update({'choices':["1. East", "2. West", "3. Search"]})
+    room_data['middle_right'].update({'choices':["1. North", "2. South", "3. West", "4. Search"]})
+    room_data['upper_left'].update({'choices':["1. East", "2. South", "3. Search"]})
+    room_data['upper_right'].update({'choices':["1. South", "2. West", "3. Search"]})
+    room_data['burial_room'].update({'choices':["1. East", "2. West", "3. Search", "4. Escape"]})
+    room_data['antechamber'].update({'choices':['1. South', '2. Search']})
+
+    room_data['entrance'].update({'searched': False})
+    room_data['lower_left'].update({'searched': False})
+    room_data['lower_right'].update({'searched': False})
+    room_data['middle_left'].update({'searched': False})
+    room_data['center_clear'].update({'searched': False})
+    room_data['middle_right'].update({'searched': False})
+    room_data['upper_left'].update({'searched': False})
+    room_data['upper_right'].update({'searched': False})
+    room_data['burial_room'].update({'searched': False})
+    room_data['antechamber'].update({'searched': False})
+    sleep(2)
+    print("\nGame Successfully Reset... Returning to title screen...\n")
+    sleep(2)
+    clear()
+    main()
+
+"""
+Defining main function to control the game
+"""
+def main():
+    splash_screen()
 
 
-entrance()
+"""
+Call main function to begin the game
+"""
+main()
