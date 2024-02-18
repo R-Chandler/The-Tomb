@@ -1,6 +1,8 @@
 # Your code goes here.
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
+
+from clear import clear
 """
 Global variables to be used throughout every room of the game.
 """
@@ -81,12 +83,12 @@ def entrance():
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
             torch_light = torch_light -1
-            print(torch_light)
+            clear()
             lower_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
             torch_light = torch_light -1
-            print(torch_light)
+            clear()
             lower_left()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
@@ -114,12 +116,12 @@ def lower_left():
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
             torch_light = torch_light -1
-            print(torch_light)
+            clear()
             middle_left()
         elif entrance_response.capitalize() == "East":
             print("\nEast Chosen")
             torch_light = torch_light -1
-            print(torch_light)
+            clear()
             entrance()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
@@ -147,12 +149,12 @@ def lower_right():
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
             torch_light = torch_light -1
-            print(torch_light)
+            clear()
             middle_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
             torch_light = torch_light -1
-            print(torch_light)
+            clear()
             entrance()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
@@ -180,17 +182,17 @@ def middle_left():
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
             torch_light = torch_light -1
-            print(torch_light)
+            clear()
             upper_left()
         elif entrance_response.capitalize() == "East":
             print("\nEast Chosen")
             torch_light = torch_light -1
-            print(torch_light)
+            clear()
             center()
         elif entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
             torch_light = torch_light -1
-            print(torch_light)
+            clear()
             lower_left()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
@@ -224,6 +226,7 @@ def center():
                 if weapon == "Jewelled Sword":
                     print("\nMonster killed\n")
                     monster = "Dead"
+                    clear()
                     center_clear()
                 else:
                     print("GAME OVER!")
@@ -239,10 +242,12 @@ def center():
                 if flee_input.capitalize() == "East":
                     print("\nEast Chosen")
                     torch_light = torch_light -1
+                    clear()
                     middle_right()
                 elif flee_input.capitalize() == "West":
                     print("West Chosen")
                     torch_light = torch_light -1
+                    clear()
                     middle_left()
                 else:
                     print("Not a valid option, try again!\n")
@@ -268,10 +273,12 @@ def center_clear():
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
             torch_light = torch_light -1
+            clear()
             lower_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
             torch_light = torch_light -1
+            clear()
             lower_left()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
@@ -301,17 +308,17 @@ def middle_right():
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
             torch_light = torch_light -1
-            print(torch_light)
+            clear()
             upper_right()
         elif entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
             torch_light = torch_light -1
-            print(torch_light)
+            clear()
             lower_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
             torch_light = torch_light -1
-            print(torch_light)
+            clear()
             center()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
@@ -339,10 +346,12 @@ def upper_left():
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
             torch_light = torch_light -1
+            clear()
             burial_room()
         elif entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
             torch_light = torch_light -1
+            clear()
             middle_left()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
@@ -370,10 +379,12 @@ def upper_right():
         if entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
             torch_light = torch_light -1
+            clear()
             middle_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
             torch_light = torch_light -1
+            clear()
             burial_room()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
@@ -401,10 +412,12 @@ def burial_room():
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
             torch_light = torch_light -1
+            clear()
             upper_left()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
             torch_light = torch_light -1
+            clear()
             upper_right()
         elif entrance_response.capitalize() == "Search":
             print("\nInvestigation Details\n")
@@ -432,6 +445,7 @@ def antechamber():
         if entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
             torch_light = torch_light -1
+            clear()
             burial_room()
         elif entrance_response.capitalize() == "Escape":
             print("YOU WIN!")
