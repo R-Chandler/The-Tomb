@@ -4,6 +4,7 @@
 
 from clear import clear
 from art import tprint
+from time import sleep
 """
 Global variables to be used throughout every room of the game.
 """
@@ -11,7 +12,6 @@ weapon = ""
 torch_light = 5
 inventory = []
 score = 0
-center_monster = "Alive"
 
 """
 Instructions information to be called in the information screen
@@ -56,7 +56,8 @@ room_data = {
     'center': {
         'description': "You cautiously step into what seems like a crypt, the air becomes thick and oppressive. The walls are adorned with carvings of Ammit,\na monstrous amalgamation of lion, hippopotamus, and crocodile. Eerie whispers echo through the chamber, and a growl rumbles in the shadows.\nIn the center of the room lies an ancient altar, upon which rests a forbidden relic.\nAs you step towards the altar a shadowed figure slowly climbs onto it, showing you its many razor teeth in your torch light with a snarl.",
         'choices': ["1. fight", "2. Flee"],
-        'flee_choices': ["1. East", "2. West"]
+        'flee_choices': ["1. East", "2. West"],
+        'monster': "alive"
     },
     'center_clear': {
         'description': "You walk confidently back into the room that previously scared you beyond belief.\nThe unmoving body of the nameless beast lays harmlessly where you left it. You now have time to marvel at the beauty of the room,\nCanpoic jars line the southern wall under a large tapestry celebrating the Pharaohs achievements in life.",
@@ -144,11 +145,13 @@ def entrance():
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             lower_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             lower_left()
         elif entrance_response.capitalize() == "Search":
@@ -185,11 +188,13 @@ def lower_left():
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             middle_left()
         elif entrance_response.capitalize() == "East":
             print("\nEast Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             entrance()
         elif entrance_response.capitalize() == "Search":
@@ -226,11 +231,13 @@ def lower_right():
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             middle_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             entrance()
         elif entrance_response.capitalize() == "Search":
@@ -268,16 +275,19 @@ def middle_left():
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             upper_left()
         elif entrance_response.capitalize() == "East":
             print("\nEast Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             center()
         elif entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             lower_left()
         elif entrance_response.capitalize() == "Search":
@@ -300,7 +310,6 @@ def center():
     global torch_light
     global score
     global weapon
-    global center_monster
 
     run_room = True
 
@@ -309,7 +318,7 @@ def center():
     print(room_data['center']['description'])
 
     while run_room:
-        if center_monster == "Alive":
+        if room_data['center']['monster'] == "alive":
             print("====================")
             for choice in room_data['center']['choices']:
                 print(choice)
@@ -320,8 +329,9 @@ def center():
                 print("====================")
                 if weapon == "Jewelled Sword":
                     print("\nMonster killed\n")
-                    center_monster = "Dead"
+                    room_data['center'].update({'monster': "dead"})
                     score = score + 2000
+                    sleep(3)
                     clear()
                     center_clear()
                 else:
@@ -338,11 +348,13 @@ def center():
                 if flee_input.capitalize() == "East":
                     print("\nEast Chosen")
                     torch_light = torch_light -1
+                    sleep(3)
                     clear()
                     middle_right()
                 elif flee_input.capitalize() == "West":
                     print("West Chosen")
                     torch_light = torch_light -1
+                    sleep(3)
                     clear()
                     middle_left()
                 else:
@@ -376,11 +388,13 @@ def center_clear():
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             middle_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             middle_left()
         elif entrance_response.capitalize() == "Search":
@@ -420,16 +434,19 @@ def middle_right():
         if entrance_response.capitalize() == "North":
             print("\nNorth Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             upper_right()
         elif entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             lower_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             center()
         elif entrance_response.capitalize() == "Search":
@@ -468,11 +485,13 @@ def upper_left():
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             burial_room()
         elif entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             middle_left()
         elif entrance_response.capitalize() == "Search":
@@ -510,11 +529,13 @@ def upper_right():
         if entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             middle_right()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             burial_room()
         elif entrance_response.capitalize() == "Search":
@@ -551,11 +572,13 @@ def burial_room():
         if entrance_response.capitalize() == "East":
             print("\nEast Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             upper_left()
         elif entrance_response.capitalize() == "West":
             print("\nWest Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             upper_right()
         elif entrance_response.capitalize() == "Search":
@@ -593,6 +616,7 @@ def antechamber():
         if entrance_response.capitalize() == "South":
             print("\nSouth Chosen")
             torch_light = torch_light -1
+            sleep(3)
             clear()
             burial_room()
         elif entrance_response.capitalize() == "Escape":
