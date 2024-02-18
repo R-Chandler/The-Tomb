@@ -3,6 +3,7 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
 from clear import clear
+from art import tprint
 """
 Global variables to be used throughout every room of the game.
 """
@@ -11,6 +12,15 @@ torch_light = 5
 inventory = []
 score = 0
 center_monster = "Alive"
+
+"""
+Instructions information to be called in the information screen
+"""
+instructions = []
+
+
+
+
 
 """
 Nested dictionary containing all the room descriptions, room choices and items.
@@ -63,6 +73,32 @@ room_data = {
         'choices': ["1. Loot", "2. Escape"]
     }
 }
+
+
+def splash_screen():
+    tprint("\n                               THE", font="small")
+    tprint("TOMB", font="block")
+    player()
+
+
+def player():
+    while True:
+        player = input("What is your name Adventurer?:\n\n")
+        player_name = player.replace(" ", "")
+        if len(player_name) == 0:
+            print("Please enter a name!\n")
+        else:
+            clear()
+            print("===================")
+            print(f"\nWelcome {player_name}, you have found your way to a long lost tomb.")
+            instructions()
+            break
+
+
+def instructions():
+    print("\ninstructions\n")
+
+
 
 """
 Entrance function to handle the first room 
@@ -534,5 +570,4 @@ Game Over function to handle when the player reaches a game over scenario.
 def game_over():
     print("\nGAME OVER\n")
 
-
-entrance()
+splash_screen()
