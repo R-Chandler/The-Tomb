@@ -24,9 +24,6 @@ page_two = ["\n\n Be aware that there are hidden options leading to special rewa
   "   GOOD LUCK!\n"]
 
 
-
-
-
 """
 Nested dictionary containing all the room descriptions, room choices and items.
 """
@@ -35,22 +32,26 @@ room_data = {
     'entrance': {
         'description': " As you cross the threshold to the tomb and move cautiously down the stone\n stairs you feel a stone shift under your foot making a soft click.\n Suddenly the door behind you slams shut with a loud crash.\n In the pitch darkness you light a torch, as your eyes adjust to the new gloom\n you see two doors leading deeper into the tomb.",
         'choices': [' 1. East', ' 2. West', ' 3. Search'],
-        'searched': False
+        'searched': False,
+        'search_notes': " You inspect the doors and find no possible way of getting them open.\n While searching the rest of the room you find little of note."
     },
     'lower_left': {
         'description': " A low hiss greets you as you step through the threshold. Coiled serpent motifs\n adorn the walls, their eyes gleaming with a sense of knowing.\n A winding path leads deeper into the chamber, guarded by stone snake statues\n that seem to slither in the shadows. The air is cool and filled with a faint\n aroma of ancient oils. In the center lies a mysterious pool reflecting the\n glow of a lone, suspended orb.",
         'choices': [" 1. North", " 2. East", " 3. Search"],
-        'searched': False
+        'searched': False,
+        'search_notes': " You step up to the suspended orb and reach out to touch it.\n without warning the orb drops into the pool, a bright light flashes forcing you to close your eyes.\n When you open them again you notice that the mouth of one of the snake statues has opened revealing a beautiful pendant."
     },
     'lower_right': {
         'description': " As you enter the Chamber of Eternal Flames, a warm gust of air tinged with\n the scent of burning incense envelops you. Torches flicker with an ethereal\n flame, casting dancing shadows on the crimson walls adorned with depictions\n of phoenixes and fiery serpents. In the center,\n a brazier burns with an unquenchable fire.",
         'choices': [" 1. North", " 2. West", " 3. Search"],
-        'searched': False
+        'searched': False,
+        'search_notes': " Glancing around and taking in the image of each mural you notice\n that to the side of one large phoenix an unlit torch sits in an alcove on the wall.\n You remove the torch and place it in your bag, just in case."
     },
     'middle_left': {
         'description': " In this new room a mysterious darkness cloaks the space. Dimly lit torches\n barely pierce the gloom, revealing walls adorned with intricate shadow play.\n The air is thick with ancient incense. Silhouettes seem to dance along the\n walls as you move with the torch. You get the unnerving feeling that you are\n being watched, a crashing sound comes from the eastern passage.",
         'choices': [" 1. North", " 2. East", " 3. South", " 4. Search"],
-        'searched': False
+        'searched': False,
+        'search_notes': " In the center of the room stands a magnificent candelabra,\n fortune favours you as one torch has remained untouched.\n You remove the fresh torch and place it in your bag."
     },
     'center': {
         'description': " You cautiously step into what seems like a crypt, the air becomes thick\n and oppressive. The walls are adorned with carvings of Ammit,\n a monstrous amalgamation of lion, hippopotamus, and crocodile. Eerie whispers\n echo through the chamber, and a growl rumbles in the shadows.\n In the center of the room lies an ancient altar, upon which rests a forbidden\n relic. As you step towards the altar a shadowed figure slowly climbs onto it,\n showing you its many razor teeth in your torch light with a snarl.",
@@ -61,22 +62,26 @@ room_data = {
     'center_clear': {
         'description': " The unmoving body of the nameless beast lays harmlessly on the floor.\n You now have time to marvel at the beauty of the room,\n Canpoic jars line the southern wall under a large tapestry celebrating the\n Pharaohs achievements in life.",
         'choices': [" 1. East", " 2. West", " 3. Search"],
-        'searched': False
+        'searched': False,
+        'search_notes': " Reading the texts written across the altar you learn that this is the final\n resting place of the Pharaohs most trusted advisor.\n The relic is a large golen eye which seems to follow you around the room.\n You place the relic into your bag."
     },
     'middle_right': {
         'description': " Upon entering the Chamber, an uncanny silence blankets the room.\n The walls are adorned with faded murals portraying courtly intrigues and\n secrets of the ancient kingdom. Hieroglyphic whispers seem to emerge from the\n very stone, telling tales of conspiracies and hidden truths.\n A central dais holds an ancient throne. Upon the throne sits an armour clad\n statue, in his hands something metal glimmers in the soft torch light.\n A muffled groan emanates from the western passageway.",
         'choices': [" 1. North", " 2. South", " 3. West", " 4. Search"],
-        'searched': False
+        'searched': False,
+        'search_notes': " You step towards the statue and it immediately becomes clear that this\n is a statue of the Pharaohs trusted general. In his hands he is holding\n a beautiful jewel encrusted blade, likely a ceremonial blade\n but you feel safer holding it in your own hands."
     },
     'upper_left': {
         'description': " As you step into the chamber the scent of ancient parchment\n fills your nostrils, your torchlight flickers across the walls revealing that\n every inch is covered in hieroglyphs, telling tales of conquests and rituals\n that have long been forgotten. An ominous statue stands at the north end of the room.",
         'choices': [" 1. East", " 2. South", " 3. Search"],
-        'searched': False
+        'searched': False,
+        'search_notes': " Sifting through the endless scrolls you find a near completely\n documented history of Pharoah Raetis' reign.\n This would be priceless if given to the right people."
     },
     'upper_right': {
         'description': " Entering this grand hall you notice your footsteps are louder, echoing around\n the immense room. The walls are lined with large statues of Anubis,\n the eyes of the jackal headed god seem to follow your every move.\n A pedestal standing atop a small staircase at the far end of the room catches\n your attention.",
         'choices': [" 1. South", " 2. West", " 3. Search"],
-        'searched': False
+        'searched': False,
+        'search_notes': " You make your way towards the pedestal, as you get closer you realise\n that this is a pile of offerings left by the people when the Pharoah passed.\n There are hundreds of precious stones and gems,\n you fill your pockets and press on."
     },
     'burial_room': {
         'description': " This is it!\n You have found the room that has eluded archaeologists for centuries.\n You find yourself standing in the burial chamber of the tomb,\n the walls are plastered with gold and jewels. Great stone tablets stand\n against the eastern wall with stories carved into them depicting the\n great deeds of the fallen pharaoh.\n Looking to the north you see the grand sarcophagus standing\n in the middle of the room, protection spells are engraved along the seal,\n they seem to glow and then you notice it… a beam of light is shining\n upon the lid coming from an open shaft on the ceiling…\n Could that be a way out?",
@@ -84,12 +89,14 @@ room_data = {
         'fight_choices': [" 1. Fight", " 2. Flee"],
         'flee_choices': [" 1. East", " 2. West", " 3. Escape"],
         'searched': False,
-        'monster': "alive"
+        'monster': "alive",
+        'search_notes': " At the foot of the sarcophagus stands an unused torch which you add to your bag.\n With further investigation you realise that the lid of the tomb\n is slightly ajar and you could open it to see whats inside.\n Something from the northern wall also catches your attention."
     },
     'antechamber': {
         'description': " With the sceptre inserted the wall begins to rumble, as you step back, loose\n stone and sand tumbles from the wall. With an almighty crunching sound\n the wall begins to part. When the newly formed opening settles into a wide\n doorway your jaw drops open. The glow from the immeasurably large pile\n of treasure fills the burial room.\nYou are going to be the richest person alive.",
         'choices': [" 1. Loot", " 2. Escape"],
-        'searched': False
+        'searched': False,
+        'search_notes': " Looking around your new surroundings, between you and the mountain of treasure you notice\n a very fine wire stretched across the room.\n you recognise this to be trap designed to protect the Pharoah's riches."
     }
 }
 
@@ -167,7 +174,8 @@ def entrance():
         elif entrance_response.capitalize() == "Search":
             if room_data['entrance']['searched'] == False:
                 clear()
-                print("\n Investigation Details\n")
+                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(room_data['entrance']['search_notes'])
                 score = score + 100
                 room_data['entrance'].update({'choices':[' 1. East', ' 2. West', ' 3. Search (Complete)']})
                 room_data['entrance'].update({'searched': True})
@@ -213,7 +221,8 @@ def lower_left():
         elif entrance_response.capitalize() == "Search":
             if room_data['lower_left']['searched'] == False:
                 clear()
-                print("\n Investigation Details\n")
+                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(room_data['lower_left']['search_notes'])
                 score = score + 1000
                 room_data['lower_left'].update({'choices':[' 1. North', ' 2. East', ' 3. Search (Complete)']})
                 room_data['lower_left'].update({'searched': True})
@@ -259,7 +268,8 @@ def lower_right():
         elif entrance_response.capitalize() == "Search":
             if room_data['lower_right']['searched'] == False:
                 clear()
-                print("\n You have found a torch!\n")
+                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(room_data['lower_right']['search_notes'])
                 torch_light = torch_light + 3
                 score = score + 300
                 room_data['lower_right'].update({'choices':[' 1. North', ' 2. West', ' 3. Search (Complete)']})
@@ -312,7 +322,8 @@ def middle_left():
         elif entrance_response.capitalize() == "Search":
             if room_data['middle_left']['searched'] == False:
                 clear()
-                print("\n You have found a torch!\n")
+                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(room_data['middle_left']['search_notes'])
                 torch_light = torch_light + 3
                 score = score + 100
                 room_data['middle_left'].update({'choices':[' 1. North', ' 2. East', ' 3. South', ' 4. Search (Complete)']})
@@ -424,7 +435,8 @@ def center_clear():
         elif entrance_response.capitalize() == "Search":
             if room_data['center_clear']['searched'] == False:
                 clear()
-                print("\n Investigation Details\n")
+                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(room_data['center_clear']['search_notes'])
                 score = score + 500
                 room_data['center_clear'].update({'choices':[' 1. East', ' 2. West', ' 3. Search (Complete)']})
                 room_data['center_clear'].update({'searched': True})
@@ -479,7 +491,8 @@ def middle_right():
         elif entrance_response.capitalize() == "Search":
             if room_data['middle_right']['searched'] == False:
                 clear()
-                print("\n You have found a jewel encrusted sword, you feel safer with it in your hand.\n")
+                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(room_data['middle_right']['search_notes'])
                 score = score + 500
                 weapon = "Jewelled Sword"
                 room_data['middle_right'].update({'choices':[' 1. North', ' 2. South', ' 3. West', ' 4. Search (Complete)']})
@@ -527,7 +540,8 @@ def upper_left():
         elif entrance_response.capitalize() == "Search":
             if room_data['upper_left']['searched'] == False:
                 clear()
-                print("\n You have found a jewel encrusted sword, you feel safer with it in your hand.\n")
+                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(room_data['upper_left']['search_notes'])
                 score = score + 1000
                 weapon = "Jewelled Sword"
                 room_data['upper_left'].update({'choices':[' 1. East', ' 2. South', ' 3. Search (Complete)']})
@@ -574,7 +588,8 @@ def upper_right():
         elif entrance_response.capitalize() == "Search":
             if room_data['upper_right']['searched'] == False:
                 clear()
-                print("\n Investigation Details\n")
+                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(room_data['upper_right']['search_notes'])
                 score = score + 1000
                 room_data['upper_right'].update({'choices':[' 1. South', ' 2. West', ' 3. Search (Complete)']})
                 room_data['upper_right'].update({'searched': True})
@@ -642,7 +657,8 @@ def burial_room():
         elif entrance_response.capitalize() == "Search":
             if room_data['burial_room']['searched'] == False:
                 clear()
-                print("\n You have found a torch!\n")
+                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(room_data['burial_room']['search_notes'])
                 score = score + 2000
                 torch_light = torch_light + 3
                 room_data['burial_room'].update({'choices':[" 1. East", " 2. West", " 3. North", " 4. Search (Complete)", " 5. Escape", " 6. Open"]})
@@ -667,7 +683,7 @@ def burial_room():
                     print("\n You stand tall facing the advancing beast,\n the torch light reflecting back at you in its menacing eyes\n")
                     sleep(3)
                     clear()
-                    print(" ====================")
+                    print(f" Score: {score}                                   Torch Level: {torch_light}\n")
                     if weapon == "Jewelled Sword":
                         print("\n You drive your sword into the pharoahs head,\n once he stops moving you notice a sceptre in his hands\n")
                         inventory.append("golden sceptre")
@@ -751,7 +767,8 @@ def antechamber():
         elif entrance_response.capitalize() == "Search":
             if room_data['antechamber']['searched'] == False:
                 clear()
-                print("\n Looking around your new surroundings, between you and the treasure you notice\n a very fine wire stretched across the room.\n")
+                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(room_data['antechamber']['search_notes'])
                 room_data['antechamber'].update({'searched': True})
                 sleep(3)
             else:
