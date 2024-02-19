@@ -9,6 +9,7 @@ player = ""
 weapon = ""
 torch_light = 5
 inventory = []
+high_score = 0
 score = 0
 
 """
@@ -144,12 +145,13 @@ Entrance function to handle the first room
 
 def entrance():
     global torch_light
+    global high_score
     global score
 
     run_room = True
 
     clear()
-    print(f" Score: {score}                                   Torch Level: {torch_light}\n\n")
+    print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['entrance']['description'])
 
@@ -174,7 +176,7 @@ def entrance():
         elif entrance_response.capitalize() == "Search":
             if room_data['entrance']['searched'] == False:
                 clear()
-                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
                 print(room_data['entrance']['search_notes'])
                 score = score + 100
                 room_data['entrance'].update({'choices':[' 1. East', ' 2. West', ' 3. Search (Complete)']})
@@ -191,12 +193,13 @@ lower_left function to handle the adventure in this room
 
 def lower_left():
     global torch_light
+    global high_score
     global score
 
     run_room = True
 
     clear()
-    print(f" Score: {score}                                   Torch Level: {torch_light}\n\n")
+    print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['lower_left']['description'])
 
@@ -221,7 +224,7 @@ def lower_left():
         elif entrance_response.capitalize() == "Search":
             if room_data['lower_left']['searched'] == False:
                 clear()
-                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
                 print(room_data['lower_left']['search_notes'])
                 score = score + 1000
                 room_data['lower_left'].update({'choices':[' 1. North', ' 2. East', ' 3. Search (Complete)']})
@@ -238,12 +241,13 @@ lower_right function to handle the adventure in this room
 
 def lower_right():
     global torch_light
+    global high_score
     global score
 
     run_room = True
 
     clear()
-    print(f" Score: {score}                                   Torch Level: {torch_light}\n\n")
+    print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['lower_right']['description'])
 
@@ -268,7 +272,7 @@ def lower_right():
         elif entrance_response.capitalize() == "Search":
             if room_data['lower_right']['searched'] == False:
                 clear()
-                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
                 print(room_data['lower_right']['search_notes'])
                 torch_light = torch_light + 3
                 score = score + 300
@@ -286,12 +290,13 @@ middle_left function to handle the adventure in this room
 
 def middle_left():
     global torch_light
+    global high_score
     global score
 
     run_room = True
 
     clear()
-    print(f" Score: {score}                                   Torch Level: {torch_light}\n\n")
+    print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['middle_left']['description'])
 
@@ -322,7 +327,7 @@ def middle_left():
         elif entrance_response.capitalize() == "Search":
             if room_data['middle_left']['searched'] == False:
                 clear()
-                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
                 print(room_data['middle_left']['search_notes'])
                 torch_light = torch_light + 3
                 score = score + 100
@@ -340,6 +345,7 @@ center function to handle the adventure in this room when the monster is present
 
 def center():
     global torch_light
+    global high_score
     global score
     global weapon
     global player
@@ -347,7 +353,7 @@ def center():
     run_room = True
 
     clear()
-    print(f" Score: {score}                                   Torch Level: {torch_light}\n\n")
+    print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['center']['description'])
 
@@ -405,12 +411,13 @@ center function to handle the adventure in this room when the monster is not pre
 
 def center_clear():
     global torch_light
+    global high_score
     global score
 
     run_room = True
 
     clear()
-    print(f" Score: {score}                                   Torch Level: {torch_light}\n\n")
+    print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['center_clear']['description'])
 
@@ -435,7 +442,7 @@ def center_clear():
         elif entrance_response.capitalize() == "Search":
             if room_data['center_clear']['searched'] == False:
                 clear()
-                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
                 print(room_data['center_clear']['search_notes'])
                 score = score + 500
                 room_data['center_clear'].update({'choices':[' 1. East', ' 2. West', ' 3. Search (Complete)']})
@@ -455,12 +462,13 @@ middle_right function to handle the adventure in this room
 def middle_right():
     global torch_light
     global weapon
+    global high_score
     global score
 
     run_room = True
 
     clear()
-    print(f" Score: {score}                                   Torch Level: {torch_light}\n\n")
+    print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['middle_right']['description'])
 
@@ -491,7 +499,7 @@ def middle_right():
         elif entrance_response.capitalize() == "Search":
             if room_data['middle_right']['searched'] == False:
                 clear()
-                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
                 print(room_data['middle_right']['search_notes'])
                 score = score + 500
                 weapon = "Jewelled Sword"
@@ -510,12 +518,13 @@ upper_left function to handle the adventure in this room
 def upper_left():
     global torch_light
     global weapon
+    global high_score
     global score
 
     run_room = True
 
     clear()
-    print(f" Score: {score}                                   Torch Level: {torch_light}\n\n")
+    print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['upper_left']['description'])
 
@@ -540,7 +549,7 @@ def upper_left():
         elif entrance_response.capitalize() == "Search":
             if room_data['upper_left']['searched'] == False:
                 clear()
-                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
                 print(room_data['upper_left']['search_notes'])
                 score = score + 1000
                 weapon = "Jewelled Sword"
@@ -558,12 +567,13 @@ upper_right function to handle the adventure in this room
 
 def upper_right():
     global torch_light
+    global high_score
     global score
 
     run_room = True
 
     clear()
-    print(f" Score: {score}                                   Torch Level: {torch_light}\n\n")
+    print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['upper_right']['description'])
 
@@ -588,7 +598,7 @@ def upper_right():
         elif entrance_response.capitalize() == "Search":
             if room_data['upper_right']['searched'] == False:
                 clear()
-                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
                 print(room_data['upper_right']['search_notes'])
                 score = score + 1000
                 room_data['upper_right'].update({'choices':[' 1. South', ' 2. West', ' 3. Search (Complete)']})
@@ -605,6 +615,7 @@ burial_room function to handle the adventure in this room
 
 def burial_room():
     global torch_light
+    global high_score
     global score
     global inventory
     global player
@@ -613,7 +624,7 @@ def burial_room():
     run_room = True
 
     clear()
-    print(f" Score: {score}                                   Torch Level: {torch_light}\n\n")
+    print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['burial_room']['description'])
 
@@ -657,7 +668,7 @@ def burial_room():
         elif entrance_response.capitalize() == "Search":
             if room_data['burial_room']['searched'] == False:
                 clear()
-                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
                 print(room_data['burial_room']['search_notes'])
                 score = score + 2000
                 torch_light = torch_light + 3
@@ -683,7 +694,7 @@ def burial_room():
                     print("\n You stand tall facing the advancing beast,\n the torch light reflecting back at you in its menacing eyes\n")
                     sleep(3)
                     clear()
-                    print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                    print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
                     if weapon == "Jewelled Sword":
                         print("\n You drive your sword into the pharoahs head,\n once he stops moving you notice a sceptre in his hands\n")
                         inventory.append("golden sceptre")
@@ -734,12 +745,13 @@ antechamber function to handle the adventure in this room
 
 def antechamber():
     global torch_light
+    global high_score
     global score
 
     run_room = True
 
     clear()
-    print(f" Score: {score}                                   Torch Level: {torch_light}\n\n")
+    print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
     light_level()
     print(room_data['antechamber']['description'])
 
@@ -767,7 +779,7 @@ def antechamber():
         elif entrance_response.capitalize() == "Search":
             if room_data['antechamber']['searched'] == False:
                 clear()
-                print(f" Score: {score}                                   Torch Level: {torch_light}\n")
+                print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
                 print(room_data['antechamber']['search_notes'])
                 room_data['antechamber'].update({'searched': True})
                 sleep(3)
@@ -793,6 +805,23 @@ def light_level():
         game_over()
     return
 
+
+"""
+high_score function wil read the score and compare it to the current high score, if the score is higher it will replace the high score for further attempts.
+"""
+def new_high_score():
+    global high_score
+    global score
+
+    if score > high_score:
+        print(f"\n Well done you've achieved a new high score of {score}!")
+        print(" ====================")
+        high_score = score
+    else:
+        print("\n You didn't beat your high score this time.")
+        print(" ====================")
+
+
 """
 Game Over function to handle when the player reaches a game over scenario.
 """
@@ -812,10 +841,14 @@ def game_over():
         print(f"\n Your torch has gone out!\n\n surrounded by darkness you succumb to the dangers of the tomb!\n")
     else:
         print("\n What happened?\n")
+
+    print(" ====================")
+    new_high_score()
     print("\n\n Would you like to try again?\n")
     input(" Press enter to play again!\n")
     clear()
     reset_game()
+
 
 """
 Winner function to control what happens when the player escapes the tomb.
@@ -826,6 +859,7 @@ def winner():
 
     print(f"\n CONGRATULATIONS {player_name}!\n")
     print(" ====================")
+    new_high_score()
     print(f"\n You escaped the tomb with your life and you obtained a final score of: {score}\n")
     print("\n Wish to try again?\n")
     input(" Press enter to play again!\n")
