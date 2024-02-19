@@ -3,7 +3,8 @@
 The Tomb is a text adventure game based in a long forgotten egyptian tomb. The player is tasked with escaping the tomb themselves as they are trapped upon entering. There are monsters lurking within the darkness, with a weapon to find the player will be able to stave off these threats. However the monsters arent the only threat, if the players torch runs out they will be left to the mercy of the halls and a game over is certain. extra torches and treasure can be found throughout but can the route to freedom be revealed?
 
 
-----------Picture of the splash screen----------
+![The Tomb Intro Screen](readme_images/tomb-splash-screen.webp)
+
 [Link to Live Site](https://the-tomb-48c17927017e.herokuapp.com/)
 
 ## User stories
@@ -21,7 +22,7 @@ The Tomb is a text adventure game based in a long forgotten egyptian tomb. The p
 ## Design
 I used a hand drawn map to build the environment for the game and built my room functions around this design.
 
-----------image of tomb map----------
+![The Tomb Map](readme_images/tomb-map.webp)
 
 ### Deployed Application
 I made some small changes to the Python terminal template to improve the user experience while using the CLI.
@@ -62,12 +63,12 @@ I carried out live testing after the application had been deployed to Heroku. On
 The application was deployed to Heroku using the following steps:
 1. Python and node.js buildpacks were added to the new pipeline settings so that the project template would be supported on the platform.
 
-----------Buildpack image----------
+![Heroku Settings](readme_images/heroku-settings.webp)
 
 2. Deployement method was selected as GitHub which linked directly to my GitHib account where the correct repository was selected.
 3. Once the correct repository was selected i used the automatic deployment from GitHub to ensure the deployed project is up to date with my repository.
 
-----------Deployment Image----------
+![Heroku Deployment Screen](readme_images/heroku-deployment.webp)
 
 The deployed project can be found using the below link.
 [THE TOMB](https://the-tomb-48c17927017e.herokuapp.com/)
