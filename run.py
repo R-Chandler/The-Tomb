@@ -884,16 +884,16 @@ def reset_game():
     inventory = []
     score = 0
 
-    room_data['entrance'].update({'choices':['1. East', '2. West', '3. Search']})
-    room_data['lower_left'].update({'choices':["1. North", "2. East", "3. Search"]})
-    room_data['lower_right'].update({'choices':["1. North", "2. West", "3. Search"]})
-    room_data['middle_left'].update({'choices':["1. North", "2. East", "3. South", "4. Search"]})
-    room_data['center_clear'].update({'choices':["1. East", "2. West", "3. Search"]})
-    room_data['middle_right'].update({'choices':["1. North", "2. South", "3. West", "4. Search"]})
-    room_data['upper_left'].update({'choices':["1. East", "2. South", "3. Search"]})
-    room_data['upper_right'].update({'choices':["1. South", "2. West", "3. Search"]})
-    room_data['burial_room'].update({'choices':["1. East", "2. West", "3. Search", "4. Escape"]})
-    room_data['antechamber'].update({'choices':["1. Loot", "2. Escape"]})
+    room_data['entrance'].update({'choices':[' 1. East', ' 2. West', ' 3. Search']})
+    room_data['lower_left'].update({'choices':[" 1. North", " 2. East", " 3. Search"]})
+    room_data['lower_right'].update({'choices':[" 1. North", " 2. West", " 3. Search"]})
+    room_data['middle_left'].update({'choices':[" 1. North", " 2. East", " 3. South", " 4. Search"]})
+    room_data['center_clear'].update({'choices':[" 1. East", " 2. West", " 3. Search"]})
+    room_data['middle_right'].update({'choices':[" 1. North", " 2. South", " 3. West", " 4. Search"]})
+    room_data['upper_left'].update({'choices':[" 1. East", " 2. South", " 3. Search"]})
+    room_data['upper_right'].update({'choices':[" 1. South", " 2. West", " 3. Search"]})
+    room_data['burial_room'].update({'choices':[" 1. East", " 2. West", " 3. Search", " 4. Escape"]})
+    room_data['antechamber'].update({'choices':[" 1. Loot", " 2. Escape"]})
 
     room_data['entrance'].update({'searched': False})
     room_data['lower_left'].update({'searched': False})
