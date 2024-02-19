@@ -39,13 +39,13 @@ room_data = {
         'description': " A low hiss greets you as you step through the threshold. Coiled serpent motifs\n adorn the walls, their eyes gleaming with a sense of knowing.\n A winding path leads deeper into the chamber, guarded by stone snake statues\n that seem to slither in the shadows. The air is cool and filled with a faint\n aroma of ancient oils. In the center lies a mysterious pool reflecting the\n glow of a lone, suspended orb.",
         'choices': [" 1. North", " 2. East", " 3. Search"],
         'searched': False,
-        'search_notes': " You step up to the suspended orb and reach out to touch it.\n without warning the orb drops into the pool, a bright light flashes forcing you to close your eyes.\n When you open them again you notice that the mouth of one of the snake statues has opened revealing a beautiful pendant."
+        'search_notes': " You step up to the suspended orb and reach out to touch it. without warning\n the orb explodes with a blinding light forcing you to close your eyes.\n When you open them again you notice that the mouth of one of the snake statues\n has opened revealing a beautiful pendant."
     },
     'lower_right': {
         'description': " As you enter the Chamber of Eternal Flames, a warm gust of air tinged with\n the scent of burning incense envelops you. Torches flicker with an ethereal\n flame, casting dancing shadows on the crimson walls adorned with depictions\n of phoenixes and fiery serpents. In the center,\n a brazier burns with an unquenchable fire.",
         'choices': [" 1. North", " 2. West", " 3. Search"],
         'searched': False,
-        'search_notes': " Glancing around and taking in the image of each mural you notice\n that to the side of one large phoenix an unlit torch sits in an alcove on the wall.\n You remove the torch and place it in your bag, just in case."
+        'search_notes': " Glancing around and taking in the image of each mural you notice that to\n the side of one large phoenix an unlit torch sits in an alcove on the wall.\n You remove the torch and place it in your bag, just in case."
     },
     'middle_left': {
         'description': " In this new room a mysterious darkness cloaks the space. Dimly lit torches\n barely pierce the gloom, revealing walls adorned with intricate shadow play.\n The air is thick with ancient incense. Silhouettes seem to dance along the\n walls as you move with the torch. You get the unnerving feeling that you are\n being watched, a crashing sound comes from the eastern passage.",
@@ -90,13 +90,13 @@ room_data = {
         'flee_choices': [" 1. East", " 2. West", " 3. Escape"],
         'searched': False,
         'monster': "alive",
-        'search_notes': " At the foot of the sarcophagus stands an unused torch which you add to your bag.\n With further investigation you realise that the lid of the tomb\n is slightly ajar and you could open it to see whats inside.\n Something from the northern wall also catches your attention."
+        'search_notes': " At the foot of the sarcophagus stands a fresh torch which you add to your bag.\n With further investigation you realise that the lid of the tomb\n is slightly ajar and you could open it to see whats inside.\n Something from the northern wall also catches your attention."
     },
     'antechamber': {
         'description': " With the sceptre inserted the wall begins to rumble, as you step back, loose\n stone and sand tumbles from the wall. With an almighty crunching sound\n the wall begins to part. When the newly formed opening settles into a wide\n doorway your jaw drops open. The glow from the immeasurably large pile\n of treasure fills the burial room.\nYou are going to be the richest person alive.",
         'choices': [" 1. Loot", " 2. Escape"],
         'searched': False,
-        'search_notes': " Looking around your new surroundings, between you and the mountain of treasure you notice\n a very fine wire stretched across the room.\n you recognise this to be trap designed to protect the Pharoah's riches."
+        'search_notes': " Looking around your new surroundings, between you and the mountain of treasure\n you notice a very fine wire stretched across the room.\n you recognise this to be trap designed to protect the Pharoah's riches."
     }
 }
 
@@ -637,16 +637,16 @@ def burial_room():
             upper_left()
         elif entrance_response.capitalize() == "North":
             if "golden sceptre" in inventory:
-                print(" You see a recess in the northern wall that looks exactly like the golden sceptre...\n do you want to place the sceptre into the wall?\n")
+                print("\n You see a recess in the northern wall that looks like the golden sceptre...\n do you want to place the sceptre into the wall?\n")
                 sceptre_input = input(" Yes or No?\n\n")
                 if sceptre_input.capitalize() == "Yes":
-                    print(" You place the sceptre into the hole and it fits perfectly!")
+                    print("\n You place the sceptre into the hole and it fits perfectly!")
                     torch_light = torch_light -1
                     sleep(3)
                     clear()
                     antechamber()
                 elif sceptre_input.capitalize() == "No":
-                    print(" You feel something doesn't feel right about this,\n you back away from the wall and turn back to the rest of the room.")
+                    print("\n You feel something doesn't feel right about this,\n you back away from the wall and turn back to the rest of the room.")
                     sleep(3)
                     clear()
                     burial_room()
@@ -760,7 +760,7 @@ def antechamber():
                 print(" Avoiding the tripwire, you cautiously move towards the treasure\n and begin looking through your new riches.")
                 score = score + 10000
         elif entrance_response.capitalize() == "Escape":
-            print(" You climb on top of the grand sarcophagus and reach for the slim opening on the ceiling,\n You manage to squeze through the gap and feel fresh air on your face for the first time in what feels like forever!\n")
+            print(" You climb on top of the grand sarcophagus and reach for the\n slim opening on the ceiling, You manage to squeze through the gap and feel\n fresh air on your face for the first time in what feels like forever!\n")
             sleep(3)
             clear()
             winner()
