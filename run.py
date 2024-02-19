@@ -13,11 +13,11 @@ score = 0
 """
 Instructions information to be called in the information screen
 """
-how_to = ["\n\n Welcome intrepid explorer, you have been searching for the burial place of\n an ancient Pharoah for a very long time. Recent discoveries lead you to a remote location\n just outside the Valley of the Kings in Egypt. Your hard work has rewarded with the sight\n of the sealed stone doors you had always dreamed of seeing.\n You pry the doors open and walk inside...",
- "\n\n THE TOMB is a text adventure game where your chocies will lead you to succeed in the discovery of the long lost Pharoah Raetis,\nor it can also become your tomb.",
-  " As you move through the tomb, a decription of the room you are in will be displayed followed by a list of options you can do while in that area of the tomb.\n\n Enter the instruction as written (eg. 'East') to carry out that choice\n and progress through the tomb to find your fame and fortune.\n\n",
+how_to = ["\n\n Welcome intrepid explorer, you have been searching for the burial place of\n an ancient Pharoah for a very long time. Recent discoveries lead you to a\n remote location just outside the Valley of the Kings in Egypt.\n Your hard work has rewarded with the sight of the sealed stone doors\n you had always dreamed of seeing.\n You pry the doors open and walk inside...",
+ "\n\n THE TOMB is a text adventure game where your chocies will lead you to succeed\n in the discovery of the long lost Pharoah Raetis, or it can also become your tomb.\n\n",
+  " As you move through the tomb, a decription of the rooms will be displayed followed\n by a list of options you can do while in that area of the tomb.\n\n Enter the instruction as written (eg. 'East') to carry out that choice\n and progress through the tomb to find your fame and fortune.\n\n",
    " Be aware that there are hidden options leading to special rewards\n so do not be afraid to search for secrets.\n",
-    " Be warned that your torch is also there to keep you safe,\n if the light goes out so do your chances of escaping the tomb.\nKeep a look out for opportunities to extend it's life as you explore.\n",
+    " Be warned that your torch is also there to keep you safe,\n if the light goes out so do your chances of escaping the tomb.\n Keep a look out for opportunities to extend it's life as you explore.\n",
      " Your score and level of torch light wil be tracked at the top of each room,\n find treasures to increase your score.\n\n"
     "   GOOD LUCK!\n"]
 
@@ -41,12 +41,12 @@ room_data = {
         'searched': False
     },
     'lower_right': {
-        'description': " As you enter the Chamber of Eternal Flames, a warm gust of air tinged with\n the scent of burning incense envelops you. Torches flicker with an ethereal flame,\n casting dancing shadows on the crimson walls adorned with depictions\n of phoenixes and fiery serpents. In the center,\n a brazier burns with an unquenchable fire.",
+        'description': " As you enter the Chamber of Eternal Flames, a warm gust of air tinged with\n the scent of burning incense envelops you. Torches flicker with an ethereal\n flame, casting dancing shadows on the crimson walls adorned with depictions\n of phoenixes and fiery serpents. In the center,\n a brazier burns with an unquenchable fire.",
         'choices': [" 1. North", " 2. West", " 3. Search"],
         'searched': False
     },
     'middle_left': {
-        'description': " In this new room a mysterious darkness cloaks the space. Dimly lit torches\n barely pierce the gloom, revealing walls adorned with intricate shadow play.\n The air is thick with ancient incense. Silhouettes seem to dance along the\n walls as you move with the torch. You get the unnerving feeling that you are being watched,\n a crashing sound comes from the eastern passage.",
+        'description': " In this new room a mysterious darkness cloaks the space. Dimly lit torches\n barely pierce the gloom, revealing walls adorned with intricate shadow play.\n The air is thick with ancient incense. Silhouettes seem to dance along the\n walls as you move with the torch. You get the unnerving feeling that you are\n being watched, a crashing sound comes from the eastern passage.",
         'choices': [" 1. North", " 2. East", " 3. South", " 4. Search"],
         'searched': False
     },
@@ -62,7 +62,7 @@ room_data = {
         'searched': False
     },
     'middle_right': {
-        'description': " Upon entering the Chamber, an uncanny silence blankets the room.\n The walls are adorned with faded murals portraying courtly intrigues and\n secrets of the ancient kingdom. Hieroglyphic whispers seem to emerge from the very stone,\n telling tales of conspiracies and hidden truths. A central dais holds an ancient throne.\n Upon the throne sits an armour clad statue, in his outstretched hands something\n metal glimmers in the soft torch light.\n A muffled groan emanates from the western passageway.",
+        'description': " Upon entering the Chamber, an uncanny silence blankets the room.\n The walls are adorned with faded murals portraying courtly intrigues and\n secrets of the ancient kingdom. Hieroglyphic whispers seem to emerge from the\n very stone, telling tales of conspiracies and hidden truths.\n A central dais holds an ancient throne. Upon the throne sits an armour clad statue,\n in his outstretched hands something metal glimmers in the soft torch light.\n A muffled groan emanates from the western passageway.",
         'choices': [" 1. North", " 2. South", " 3. West", " 4. Search"],
         'searched': False
     },
@@ -77,7 +77,7 @@ room_data = {
         'searched': False
     },
     'burial_room': {
-        'description': " This is it!\n You have found the room that has eluded archaeologists for centuries.\n You find yourself standing in the burial chamber of the tomb,\n the walls are plastered with gold and jewels. Great stone tablets stand against the eastern wall\n with stories carved into them depicting the great deeds of the fallen pharaoh.\n Looking to the north you see the grand sarcophagus standing\n in the middle of the room, protection spells are engraved along the seal,\n they seem to glow and then you notice it… a beam of light is shining\n upon the lid coming from an open shaft on the ceiling…\nCould that be a way out?",
+        'description': " This is it!\n You have found the room that has eluded archaeologists for centuries.\n You find yourself standing in the burial chamber of the tomb,\n the walls are plastered with gold and jewels. Great stone tablets stand against the eastern wall with stories carved into them depicting the great deeds of the fallen pharaoh.\n Looking to the north you see the grand sarcophagus standing\n in the middle of the room, protection spells are engraved along the seal,\n they seem to glow and then you notice it… a beam of light is shining\n upon the lid coming from an open shaft on the ceiling…\n Could that be a way out?",
         'choices': [" 1. East", " 2. West", " 3. Search", " 4. Escape"],
         'fight_choices': [" 1. Fight", " 2. Flee"],
         'flee_choices': [" 1. East", " 2. West", " 3. Escape"],
@@ -336,7 +336,7 @@ def center():
             for choice in room_data['center']['choices']:
                 print(choice)
             print(" ====================")
-            entrance_response = input("What Do You Do Adventurer?:\n\n")
+            entrance_response = input(" What Do You Do Adventurer?:\n\n")
             if entrance_response.capitalize() == "Fight":
                 print("\n You stand tall facing the advancing beast, the torch light reflecting back at you in its menacing eyes")
                 print(" ====================")
@@ -641,8 +641,8 @@ def burial_room():
             else:
                 print(" You have already searched this room!")
         elif entrance_response.capitalize() == "Escape":
-            print(" You climb on top of the grand sarcophagus and reach for the slim opening on the ceiling,\nYou manage to squeze through the gap and feel fresh air on your face for the first time in what feels like forever!\n")
-            sleep(2)
+            print(" You climb on top of the grand sarcophagus and reach for the slim opening on the ceiling,\n You manage to squeze through the gap and feel fresh air on your face for the first time in what feels like forever!\n")
+            sleep(3)
             clear()
             winner()
         elif entrance_response.capitalize() == "Open":
