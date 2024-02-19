@@ -697,6 +697,7 @@ def burial_room():
                     print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
                     if weapon == "Jewelled Sword":
                         print("\n You drive your sword into the pharoahs head,\n once he stops moving you notice a sceptre in his hands\n")
+                        sleep(2)
                         inventory.append("golden sceptre")
                         print("\n Golden Sceptre added to your inventory!\n")
                         room_data['burial_room'].update({'monster': "dead"})
@@ -730,6 +731,7 @@ def burial_room():
                     elif flee_input.capitalize() == "Escape":
                         print("\n As you step up onto the now open sarcophagus\n to reach the opening on the ceiling, the undead pharoah\n grabs your leg and pulls you into his tomb.\n\n")
                         player = "dead"
+                        sleep(3)
                         clear()
                         game_over()
                     else:
