@@ -613,13 +613,13 @@ def burial_room():
             torch_light = torch_light -1
             sleep(3)
             clear()
-            upper_left()
+            upper_right()
         elif entrance_response.capitalize() == "West":
             print("\n West Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
-            upper_right()
+            upper_left()
         elif entrance_response.capitalize() == "North":
             if "golden sceptre" in inventory:
                 print(" You see a recess in the northern wall that looks exactly like the golden sceptre...\n do you want to place the sceptre into the wall?\n")
@@ -792,7 +792,7 @@ def game_over():
     if player == "dead":
         print(f"\n You were slain by a beast in the tomb!\n")
     elif torch_light == 0:
-        print(f"\n Your torch has gone out! surrounded by darkness you succumb to the dangers of the tomb!\n")
+        print(f"\n Your torch has gone out!\n\n surrounded by darkness you succumb to the dangers of the tomb!\n")
     else:
         print("\n What happened?\n")
     print("\n\n Would you like to try again?\n")
