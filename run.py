@@ -117,6 +117,7 @@ def player_id():
             print(" Please enter a name!\n")
         else:
             clear()
+            break
         
 
 def instructions():
