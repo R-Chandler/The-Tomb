@@ -40,6 +40,14 @@ I made some small changes to the Python terminal template to improve the user ex
 - Going forward there are opportunities link to google sheets or a database to track users high scores.
 - Additionally with refactoring the code i would look to make the tomb have a more random construction making each run through a different experience.
 
+### Additional Considerations
+If i had more time to work on this project i would like to add these additional features to the game / code.
+
+- Coloured text to make the important pieces of text or headings stand out.
+- Have the print statements display word by word instead of appearing instantaneously to improve readability.
+- Convert the global variables into a player class to reduce the amount of code and improve its quality.
+- Move the data structures holding the room data and the game instructions to a separate json file.
+
 ## Technologies Used
 - Python 3
 - Pip for installing additional Python packages
@@ -55,6 +63,7 @@ I carried out live testing after the application had been deployed to Heroku. On
 	
 ### Known Bugs
 
+During final testing i discovered that (CTRL +C) otherwise known as SIGINT will crash the game when used. I will need to create a function to ensure that this input is caught and does not interfere with the game running.
 
 ## Deployment
 
