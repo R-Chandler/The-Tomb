@@ -4,6 +4,7 @@ from time import sleep
 """
 Global variables to be used throughout every room of the game.
 """
+player_name = ""
 player = ""
 weapon = ""
 torch_light = 5
@@ -63,7 +64,7 @@ room_data = {
         'searched': False
     },
     'middle_right': {
-        'description': " Upon entering the Chamber, an uncanny silence blankets the room.\n The walls are adorned with faded murals portraying courtly intrigues and\n secrets of the ancient kingdom. Hieroglyphic whispers seem to emerge from the\n very stone, telling tales of conspiracies and hidden truths.\n A central dais holds an ancient throne. Upon the throne sits an armour clad statue,\n in his outstretched hands something metal glimmers in the soft torch light.\n A muffled groan emanates from the western passageway.",
+        'description': " Upon entering the Chamber, an uncanny silence blankets the room.\n The walls are adorned with faded murals portraying courtly intrigues and\n secrets of the ancient kingdom. Hieroglyphic whispers seem to emerge from the\n very stone, telling tales of conspiracies and hidden truths.\n A central dais holds an ancient throne. Upon the throne sits an armour clad\n statue, in his hands something metal glimmers in the soft torch light.\n A muffled groan emanates from the western passageway.",
         'choices': [" 1. North", " 2. South", " 3. West", " 4. Search"],
         'searched': False
     },
@@ -78,7 +79,7 @@ room_data = {
         'searched': False
     },
     'burial_room': {
-        'description': " This is it!\n You have found the room that has eluded archaeologists for centuries.\n You find yourself standing in the burial chamber of the tomb,\n the walls are plastered with gold and jewels. Great stone tablets stand against the eastern wall with stories carved into them depicting the great deeds of the fallen pharaoh.\n Looking to the north you see the grand sarcophagus standing\n in the middle of the room, protection spells are engraved along the seal,\n they seem to glow and then you notice it… a beam of light is shining\n upon the lid coming from an open shaft on the ceiling…\n Could that be a way out?",
+        'description': " This is it!\n You have found the room that has eluded archaeologists for centuries.\n You find yourself standing in the burial chamber of the tomb,\n the walls are plastered with gold and jewels. Great stone tablets stand\n against the eastern wall with stories carved into them depicting the\n great deeds of the fallen pharaoh.\n Looking to the north you see the grand sarcophagus standing\n in the middle of the room, protection spells are engraved along the seal,\n they seem to glow and then you notice it… a beam of light is shining\n upon the lid coming from an open shaft on the ceiling…\n Could that be a way out?",
         'choices': [" 1. East", " 2. West", " 3. Search", " 4. Escape"],
         'fight_choices': [" 1. Fight", " 2. Flee"],
         'flee_choices': [" 1. East", " 2. West", " 3. Escape"],
@@ -100,6 +101,8 @@ def splash_screen():
 
 
 def player_id():
+    global player_name
+
     while True:
         player = input(" What is your name Adventurer?:\n\n")
         player_name = player.replace(" ", "")
@@ -107,13 +110,15 @@ def player_id():
             print(" Please enter a name!\n")
         else:
             clear()
-            print(" ===================")
-            print(f" Welcome {player_name}, are you prepared to face the tomb?")
             instructions()
-            break
+            
 
 
 def instructions():
+    global player_name
+
+    print(" ===================")
+    print(f" Welcome {player_name}, are you prepared to face the tomb?")
     for x in page_one:
         print(x)
     input(" PRESS ENTER TO CONTINUE\n")
@@ -162,7 +167,7 @@ def entrance():
         elif entrance_response.capitalize() == "Search":
             if room_data['entrance']['searched'] == False:
                 clear()
-                print("\nInvestigation Details\n")
+                print("\n Investigation Details\n")
                 score = score + 100
                 room_data['entrance'].update({'choices':[' 1. East', ' 2. West', ' 3. Search (Complete)']})
                 room_data['entrance'].update({'searched': True})
@@ -343,7 +348,7 @@ def center():
             print(" ====================")
             entrance_response = input(" What Do You Do Adventurer?:\n\n")
             if entrance_response.capitalize() == "Fight":
-                print("\n You stand tall facing the advancing beast, the torch light reflecting back at you in its menacing eyes")
+                print("\n You stand tall facing the advancing beast,\n the torch light reflecting back at you in its menacing eyes")
                 print(" ====================")
                 if weapon == "Jewelled Sword":
                     print("\n Monster killed\n")
@@ -356,7 +361,7 @@ def center():
                     player = "dead"
                     game_over()
             elif entrance_response.capitalize() == "Flee":
-                print("\n You slowly back away from the terrifying creature as it gets ready to pounce, you sprint toward the exit!")
+                print("\n You slowly back away from the terrifying creature as it gets ready to pounce,\n you sprint toward the exit!")
                 print(" Which way to you go?")
                 print(" ====================")
                 for choice in room_data['center']['flee_choices']:
@@ -617,7 +622,7 @@ def burial_room():
             upper_right()
         elif entrance_response.capitalize() == "North":
             if "golden sceptre" in inventory:
-                print(" You see a recess in the northern wall that looks exactly like the golden sceptre...\nyou you want to place the sceptre into the wall?\n")
+                print(" You see a recess in the northern wall that looks exactly like the golden sceptre...\n do you want to place the sceptre into the wall?\n")
                 sceptre_input = input(" Yes or No?\n\n")
                 if sceptre_input.capitalize() == "Yes":
                     print(" You place the sceptre into the hole and it fits perfectly!")
@@ -626,14 +631,14 @@ def burial_room():
                     clear()
                     antechamber()
                 elif sceptre_input.capitalize() == "No":
-                    print(" You feel something doesn't feel right about this, you back away from the wall and turn back to the rest of the room.")
+                    print(" You feel something doesn't feel right about this,\n you back away from the wall and turn back to the rest of the room.")
                     sleep(3)
                     clear()
                     burial_room()
                 else:
                     print(" Not a valid option, try again!\n")
             else:
-                print(" You investigate the northern wall and find nothing but a suspicous recess in the wall that looks like a sceptre.")
+                print(" You investigate the northern wall and find nothing but\n a suspicous recess in the wall that looks like a sceptre.")
         elif entrance_response.capitalize() == "Search":
             if room_data['burial_room']['searched'] == False:
                 clear()
@@ -646,20 +651,22 @@ def burial_room():
             else:
                 print(" You have already searched this room!")
         elif entrance_response.capitalize() == "Escape":
-            print(" You climb on top of the grand sarcophagus and reach for the slim opening on the ceiling,\n You manage to squeze through the gap and feel fresh air on your face for the first time in what feels like forever!\n")
+            print(" You climb on top of the grand sarcophagus and reach for the\n slim opening on the ceiling, You manage to squeze through the gap and feel\n fresh air on your face for the first time in what feels like forever!\n")
             sleep(3)
             clear()
             winner()
         elif entrance_response.capitalize() == "Open":
             if room_data['burial_room']['monster'] == "alive":
-                print("\n As you slide the heavy lid from the sarcophagus, the weight all of a sudden lessens.\n A bloodcurddling screech comes from inside the stone box and you come face to face with the undead Pharoah!")
+                print("\n As you slide the heavy lid from the sarcophagus, the weight all of a sudden\n lessens. A bloodcurddling screech comes from inside the stone box and you\n come face to face with the undead Pharoah!")
                 print(" ====================")
                 for choice in room_data['burial_room']['fight_choices']:
                     print(choice)
                 print(" ====================")
                 entrance_response = input(" What Do You Do Adventurer?:\n\n")
                 if entrance_response.capitalize() == "Fight":
-                    print("\n You stand tall facing the advancing beast, the torch light reflecting back at you in its menacing eyes\n")
+                    print("\n You stand tall facing the advancing beast,\n the torch light reflecting back at you in its menacing eyes\n")
+                    sleep(3)
+                    clear()
                     print(" ====================")
                     if weapon == "Jewelled Sword":
                         print("\n You drive your sword into the pharoahs head,\n once he stops moving you notice a sceptre in his hands\n")
@@ -672,9 +679,10 @@ def burial_room():
                         burial_room()
                     else:
                         player = "dead"
+                        clear()
                         game_over()
                 elif entrance_response.capitalize() == "Flee":
-                    print("\n You slowly back away from the terrifying creature as it gets ready to pounce, you sprint toward the exit!")
+                    print("\n You slowly back away from the terrifying creature as it gets ready to pounce,\n you sprint toward the exit!")
                     print(" ====================")
                     for choice in room_data['center']['flee_choices']:
                         print(choice)
@@ -693,8 +701,9 @@ def burial_room():
                         clear()
                         upper_left()
                     elif flee_input.capitalize() == "Escape":
-                        print("\n As you step up onto the now open sarcophagus to reach the opening on the ceiling, the undead pharoah grabs your leg and pulls you into his tomb.\n\n")
+                        print("\n As you step up onto the now open sarcophagus\n to reach the opening on the ceiling, the undead pharoah\n grabs your leg and pulls you into his tomb.\n\n")
                         player = "dead"
+                        clear()
                         game_over()
                     else:
                         print(" Not a valid option, try again!\n")
@@ -772,17 +781,18 @@ Game Over function to handle when the player reaches a game over scenario.
 """
 
 def game_over():
+    global player_name
     global player
     global torch_light
     global score
 
     clear()
     print("\n GAME OVER\n")
-    print(f"\n Your final score was: {score}\n")
+    print(f"\n {player_name} Your final score was: {score}\n")
     if player == "dead":
-        print("\n You were slain by a beast in the tomb!\n")
+        print(f"\n You were slain by a beast in the tomb!\n")
     elif torch_light == 0:
-        print("\n Your torch has gone out! surrounded by darkness you succumb to the dangers of the tomb!\n")
+        print(f"\n Your torch has gone out! surrounded by darkness you succumb to the dangers of the tomb!\n")
     else:
         print("\n What happened?\n")
     print("\n\n Would you like to try again?\n")
@@ -794,9 +804,10 @@ def game_over():
 Winner function to control what happens when the player escapes the tomb.
 """
 def winner():
+    global player_name
     global score
 
-    print("\n CONGRATULATIONS!\n")
+    print(f"\n CONGRATULATIONS {player_name}!\n")
     print(" ====================")
     print(f"\n You escaped the tomb with your life and you obtained a final score of: {score}\n")
     print("\n Wish to try again?\n")
