@@ -105,22 +105,19 @@ room_data = {
 def splash_screen():
     tprint("\n                               THE", font="small")
     tprint("TOMB", font="block")
-    player_id()
 
 
 def player_id():
     global player_name
 
     while True:
-        player = input(" What is your name Adventurer?:\n\n")
+        player = input(" What is your name Adventurer?:\n\n > ")
         player_name = player.replace(" ", "")
         if len(player_name) == 0:
             print(" Please enter a name!\n")
         else:
             clear()
-            instructions()
-            
-
+        
 
 def instructions():
     global player_name
@@ -135,9 +132,6 @@ def instructions():
         print(y)
     input(" PRESS ENTER TO CONTINUE\n")
     clear()
-    entrance()
-
-
 
 """
 Entrance function to handle the first room 
@@ -160,20 +154,20 @@ def entrance():
         for choice in room_data['entrance']['choices']:
             print(choice)
         print(" ====================")
-        entrance_response = input(" What Do You Do Adventurer?:\n\n")
-        if entrance_response.capitalize() == "East":
+        user_input = input(" What Do You Do Adventurer?:\n\n > ")
+        if user_input.capitalize() == "East":
             print("\n East Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             lower_right()
-        elif entrance_response.capitalize() == "West":
+        elif user_input.capitalize() == "West":
             print("\n West Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             lower_left()
-        elif entrance_response.capitalize() == "Search":
+        elif user_input.capitalize() == "Search":
             if room_data['entrance']['searched'] == False:
                 clear()
                 print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
@@ -208,20 +202,20 @@ def lower_left():
         for choice in room_data['lower_left']['choices']:
             print(choice)
         print(" ====================")
-        entrance_response = input(" What Do You Do Adventurer?:\n\n")
-        if entrance_response.capitalize() == "North":
+        user_input = input(" What Do You Do Adventurer?:\n\n > ")
+        if user_input.capitalize() == "North":
             print("\n North Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             middle_left()
-        elif entrance_response.capitalize() == "East":
+        elif user_input.capitalize() == "East":
             print("\n East Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             entrance()
-        elif entrance_response.capitalize() == "Search":
+        elif user_input.capitalize() == "Search":
             if room_data['lower_left']['searched'] == False:
                 clear()
                 print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
@@ -256,20 +250,20 @@ def lower_right():
         for choice in room_data['lower_right']['choices']:
             print(choice)
         print(" ====================")
-        entrance_response = input(" What Do You Do Adventurer?:\n\n")
-        if entrance_response.capitalize() == "North":
+        user_input = input(" What Do You Do Adventurer?:\n\n > ")
+        if user_input.capitalize() == "North":
             print("\n North Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             middle_right()
-        elif entrance_response.capitalize() == "West":
+        elif user_input.capitalize() == "West":
             print("\n West Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             entrance()
-        elif entrance_response.capitalize() == "Search":
+        elif user_input.capitalize() == "Search":
             if room_data['lower_right']['searched'] == False:
                 clear()
                 print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
@@ -305,26 +299,26 @@ def middle_left():
         for choice in room_data['middle_left']['choices']:
             print(choice)
         print(" ====================")
-        entrance_response = input(" What Do You Do Adventurer?:\n\n")
-        if entrance_response.capitalize() == "North":
+        user_input = input(" What Do You Do Adventurer?:\n\n >")
+        if user_input.capitalize() == "North":
             print("\n North Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             upper_left()
-        elif entrance_response.capitalize() == "East":
+        elif user_input.capitalize() == "East":
             print("\n East Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             center()
-        elif entrance_response.capitalize() == "South":
+        elif user_input.capitalize() == "South":
             print("\n South Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             lower_left()
-        elif entrance_response.capitalize() == "Search":
+        elif user_input.capitalize() == "Search":
             if room_data['middle_left']['searched'] == False:
                 clear()
                 print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
@@ -363,8 +357,8 @@ def center():
             for choice in room_data['center']['choices']:
                 print(choice)
             print(" ====================")
-            entrance_response = input(" What Do You Do Adventurer?:\n\n")
-            if entrance_response.capitalize() == "Fight":
+            user_input = input(" What Do You Do Adventurer?:\n\n > ")
+            if user_input.capitalize() == "Fight":
                 print("\n You stand tall facing the advancing beast,\n the torch light reflecting back at you in its menacing eyes")
                 print(" ====================")
                 if weapon == "Jewelled Sword":
@@ -377,14 +371,14 @@ def center():
                 else:
                     player = "dead"
                     game_over()
-            elif entrance_response.capitalize() == "Flee":
+            elif user_input.capitalize() == "Flee":
                 print("\n You slowly back away from the terrifying creature as it gets ready to pounce,\n you sprint toward the exit!")
                 print(" Which way to you go?")
                 print(" ====================")
                 for choice in room_data['center']['flee_choices']:
                     print(choice)
                 print(" ====================")
-                flee_input = input(" which way do you go?:\n\n")
+                flee_input = input(" which way do you go?:\n\n > ")
                 if flee_input.capitalize() == "East":
                     print("\n East Chosen")
                     torch_light = torch_light -1
@@ -426,20 +420,20 @@ def center_clear():
         for choice in room_data['center_clear']['choices']:
             print(choice)
         print(" ====================")
-        entrance_response = input(" What Do You Do Adventurer?:\n\n")
-        if entrance_response.capitalize() == "East":
+        user_input = input(" What Do You Do Adventurer?:\n\n > ")
+        if user_input.capitalize() == "East":
             print("\n East Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             middle_right()
-        elif entrance_response.capitalize() == "West":
+        elif user_input.capitalize() == "West":
             print("\n West Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             middle_left()
-        elif entrance_response.capitalize() == "Search":
+        elif user_input.capitalize() == "Search":
             if room_data['center_clear']['searched'] == False:
                 clear()
                 print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
@@ -477,26 +471,26 @@ def middle_right():
         for choice in room_data['middle_right']['choices']:
             print(choice)
         print(" ====================")
-        entrance_response = input(" What Do You Do Adventurer?:\n\n")
-        if entrance_response.capitalize() == "North":
+        user_input = input(" What Do You Do Adventurer?:\n\n > ")
+        if user_input.capitalize() == "North":
             print("\n North Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             upper_right()
-        elif entrance_response.capitalize() == "South":
+        elif user_input.capitalize() == "South":
             print("\n South Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             lower_right()
-        elif entrance_response.capitalize() == "West":
+        elif user_input.capitalize() == "West":
             print("\n West Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             center()
-        elif entrance_response.capitalize() == "Search":
+        elif user_input.capitalize() == "Search":
             if room_data['middle_right']['searched'] == False:
                 clear()
                 print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
@@ -533,20 +527,20 @@ def upper_left():
         for choice in room_data['upper_left']['choices']:
             print(choice)
         print(" ====================")
-        entrance_response = input(" What Do You Do Adventurer?:\n\n")
-        if entrance_response.capitalize() == "East":
+        user_input = input(" What Do You Do Adventurer?:\n\n > ")
+        if user_input.capitalize() == "East":
             print("\n East Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             burial_room()
-        elif entrance_response.capitalize() == "South":
+        elif user_input.capitalize() == "South":
             print("\n South Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             middle_left()
-        elif entrance_response.capitalize() == "Search":
+        elif user_input.capitalize() == "Search":
             if room_data['upper_left']['searched'] == False:
                 clear()
                 print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
@@ -582,20 +576,20 @@ def upper_right():
         for choice in room_data['upper_right']['choices']:
             print(choice)
         print(" ====================")
-        entrance_response = input(" What Do You Do Adventurer?:\n\n")
-        if entrance_response.capitalize() == "South":
+        user_input = input(" What Do You Do Adventurer?:\n\n > ")
+        if user_input.capitalize() == "South":
             print("\n South Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             middle_right()
-        elif entrance_response.capitalize() == "West":
+        elif user_input.capitalize() == "West":
             print("\n West Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             burial_room()
-        elif entrance_response.capitalize() == "Search":
+        elif user_input.capitalize() == "Search":
             if room_data['upper_right']['searched'] == False:
                 clear()
                 print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
@@ -633,23 +627,23 @@ def burial_room():
         for choice in room_data['burial_room']['choices']:
             print(choice)
         print(" ====================")
-        entrance_response = input(" What Do You Do Adventurer?:\n\n")
-        if entrance_response.capitalize() == "East":
+        user_input = input(" What Do You Do Adventurer?:\n\n > ")
+        if user_input.capitalize() == "East":
             print("\n East Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             upper_right()
-        elif entrance_response.capitalize() == "West":
+        elif user_input.capitalize() == "West":
             print("\n West Chosen")
             torch_light = torch_light -1
             sleep(3)
             clear()
             upper_left()
-        elif entrance_response.capitalize() == "North":
+        elif user_input.capitalize() == "North":
             if "golden sceptre" in inventory:
                 print("\n You see a recess in the northern wall that looks like the golden sceptre...\n do you want to place the sceptre into the wall?\n")
-                sceptre_input = input(" Yes or No?\n\n")
+                sceptre_input = input(" Yes or No?\n\n > ")
                 if sceptre_input.capitalize() == "Yes":
                     print("\n You place the sceptre into the hole and it fits perfectly!")
                     torch_light = torch_light -1
@@ -665,7 +659,7 @@ def burial_room():
                     print(" Not a valid option, try again!\n")
             else:
                 print(" You investigate the northern wall and find nothing but\n a suspicous recess in the wall that looks like a sceptre.")
-        elif entrance_response.capitalize() == "Search":
+        elif user_input.capitalize() == "Search":
             if room_data['burial_room']['searched'] == False:
                 clear()
                 print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
@@ -677,20 +671,20 @@ def burial_room():
                 sleep(3)
             else:
                 print(" You have already searched this room!")
-        elif entrance_response.capitalize() == "Escape":
+        elif user_input.capitalize() == "Escape":
             print(" You climb on top of the grand sarcophagus and reach for the\n slim opening on the ceiling, You manage to squeze through the gap and feel\n fresh air on your face for the first time in what feels like forever!\n")
             sleep(3)
             clear()
             winner()
-        elif entrance_response.capitalize() == "Open":
+        elif user_input.capitalize() == "Open":
             if room_data['burial_room']['monster'] == "alive":
                 print("\n As you slide the heavy lid from the sarcophagus, the weight all of a sudden\n lessens. A bloodcurddling screech comes from inside the stone box and you\n come face to face with the undead Pharoah!")
                 print(" ====================")
                 for choice in room_data['burial_room']['fight_choices']:
                     print(choice)
                 print(" ====================")
-                entrance_response = input(" What Do You Do Adventurer?:\n\n")
-                if entrance_response.capitalize() == "Fight":
+                user_input = input(" What Do You Do Adventurer?:\n\n > ")
+                if user_input.capitalize() == "Fight":
                     print("\n You stand tall facing the advancing beast,\n the torch light reflecting back at you in its menacing eyes\n")
                     sleep(3)
                     clear()
@@ -709,13 +703,13 @@ def burial_room():
                         player = "dead"
                         clear()
                         game_over()
-                elif entrance_response.capitalize() == "Flee":
+                elif user_input.capitalize() == "Flee":
                     print("\n You slowly back away from the terrifying creature as it gets ready to pounce,\n you sprint toward the exit!")
                     print(" ====================")
                     for choice in room_data['center']['flee_choices']:
                         print(choice)
                     print(" ====================")
-                    flee_input = input(" which way do you go?:\n\n")
+                    flee_input = input(" which way do you go?:\n\n > ")
                     if flee_input.capitalize() == "East":
                         print("\n East Chosen")
                         torch_light = torch_light -1
@@ -762,8 +756,8 @@ def antechamber():
         for choice in room_data['antechamber']['choices']:
             print(choice)
         print(" ====================")
-        entrance_response = input(" What Do You Do Adventurer?:\n\n")
-        if entrance_response.capitalize() == "Loot":
+        user_input = input(" What Do You Do Adventurer?:\n\n > ")
+        if user_input.capitalize() == "Loot":
             if room_data['burial_room']['searched'] == False:
                 clear()
                 print(" You step towards the large pile of treasure thinking about how rich you are going to be.\n You feel a pulling on your leg, as you look down you notice the tripwire too late as the door slams shut behind you.\n The force extinguishes your torch and you are now trapped forever with the riches you always wanted.")
@@ -773,12 +767,12 @@ def antechamber():
             else:
                 print(" Avoiding the tripwire, you cautiously move towards the treasure\n and begin looking through your new riches.")
                 score = score + 10000
-        elif entrance_response.capitalize() == "Escape":
+        elif user_input.capitalize() == "Escape":
             print(" You climb on top of the grand sarcophagus and reach for the\n slim opening on the ceiling, You manage to squeze through the gap and feel\n fresh air on your face for the first time in what feels like forever!\n")
             sleep(3)
             clear()
             winner()
-        elif entrance_response.capitalize() == "Search":
+        elif user_input.capitalize() == "Search":
             if room_data['antechamber']['searched'] == False:
                 clear()
                 print(f" Score: {score}           High Score:{high_score}             Torch Level: {torch_light}\n\n")
@@ -922,6 +916,9 @@ Defining main function to control the game
 """
 def main():
     splash_screen()
+    player_id()
+    instructions()
+    entrance()
 
 
 """
