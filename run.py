@@ -117,6 +117,7 @@ def instructions():
         print(steps)
     input(" PRESS ENTER TO CONTINUE\n")
     clear()
+    clear()
     entrance()
 
 
@@ -156,12 +157,12 @@ def entrance():
             lower_left()
         elif entrance_response.capitalize() == "Search":
             if room_data['entrance']['searched'] == False:
+                clear()
                 print("\nInvestigation Details\n")
                 score = score + 100
                 room_data['entrance'].update({'choices':[' 1. East', ' 2. West', ' 3. Search (Complete)']})
                 room_data['entrance'].update({'searched': True})
                 sleep(3)
-                clear()
             else:
                 print(" You have already searched this room!")
         else:
@@ -202,12 +203,12 @@ def lower_left():
             entrance()
         elif entrance_response.capitalize() == "Search":
             if room_data['lower_left']['searched'] == False:
+                clear()
                 print("\n Investigation Details\n")
                 score = score + 1000
                 room_data['lower_left'].update({'choices':[' 1. North', ' 2. East', ' 3. Search (Complete)']})
                 room_data['lower_left'].update({'searched': True})
                 sleep(3)
-                clear()
             else:
                 print(" You have already searched this room!")
         else:
@@ -248,13 +249,13 @@ def lower_right():
             entrance()
         elif entrance_response.capitalize() == "Search":
             if room_data['lower_right']['searched'] == False:
+                clear()
                 print("\n You have found a torch!\n")
                 torch_light = torch_light + 3
                 score = score + 300
                 room_data['lower_right'].update({'choices':[' 1. North', ' 2. West', ' 3. Search (Complete)']})
                 room_data['lower_right'].update({'searched': True})
                 sleep(3)
-                clear()
             else:
                 print(" You have already searched this room!")
         else:
@@ -301,13 +302,13 @@ def middle_left():
             lower_left()
         elif entrance_response.capitalize() == "Search":
             if room_data['middle_left']['searched'] == False:
+                clear()
                 print("\n You have found a torch!\n")
                 torch_light = torch_light + 3
                 score = score + 100
                 room_data['middle_left'].update({'choices':[' 1. North', ' 2. East', ' 3. South', ' 4. Search (Complete)']})
                 room_data['middle_left'].update({'searched': True})
                 sleep(3)
-                clear()
             else:
                 print(" You have already searched this room!")
         else:
@@ -351,7 +352,7 @@ def center():
                     player = "dead"
                     game_over()
             elif entrance_response.capitalize() == "Flee":
-                print("\n You slowly back away from the terrifying creature as it gets ready to pounce to you sprint toward the exit!")
+                print("\n You slowly back away from the terrifying creature as it gets ready to pounce, you sprint toward the exit!")
                 print(" Which way to you go?")
                 print(" ====================")
                 for choice in room_data['center']['flee_choices']:
@@ -373,7 +374,7 @@ def center():
                 else:
                     print(" Not a valid option, try again!\n")
             else:
-                    print(" Not a valid option, try again!\n")
+                print(" Not a valid option, try again!\n")
         else:
             center_clear()
 
@@ -413,12 +414,12 @@ def center_clear():
             middle_left()
         elif entrance_response.capitalize() == "Search":
             if room_data['center_clear']['searched'] == False:
+                clear()
                 print("\n Investigation Details\n")
                 score = score + 500
                 room_data['center_clear'].update({'choices':[' 1. East', ' 2. West', ' 3. Search (Complete)']})
                 room_data['center_clear'].update({'searched': True})
                 sleep(3)
-                clear()
             else:
                 print(" You have already searched this room!")
         else:
@@ -468,13 +469,13 @@ def middle_right():
             center()
         elif entrance_response.capitalize() == "Search":
             if room_data['middle_right']['searched'] == False:
+                clear()
                 print("\n You have found a jewel encrusted sword, you feel safer with it in your hand.\n")
                 score = score + 500
                 weapon = "Jewelled Sword"
                 room_data['middle_right'].update({'choices':[' 1. North', ' 2. South', ' 3. West', ' 4. Search (Complete)']})
                 room_data['middle_right'].update({'searched': True})
                 sleep(3)
-                clear()
             else:
                 print(" You have already searched this room!")
         else:
@@ -516,13 +517,13 @@ def upper_left():
             middle_left()
         elif entrance_response.capitalize() == "Search":
             if room_data['upper_left']['searched'] == False:
+                clear()
                 print("\n You have found a jewel encrusted sword, you feel safer with it in your hand.\n")
                 score = score + 1000
                 weapon = "Jewelled Sword"
                 room_data['upper_left'].update({'choices':[' 1. East', ' 2. South', ' 3. Search (Complete)']})
                 room_data['upper_left'].update({'searched': True})
                 sleep(3)
-                clear()
             else:
                 print(" You have already searched this room!")
         else:
@@ -563,12 +564,12 @@ def upper_right():
             burial_room()
         elif entrance_response.capitalize() == "Search":
             if room_data['upper_right']['searched'] == False:
+                clear()
                 print("\n Investigation Details\n")
                 score = score + 1000
                 room_data['upper_right'].update({'choices':[' 1. South', ' 2. West', ' 3. Search (Complete)']})
                 room_data['upper_right'].update({'searched': True})
                 sleep(3)
-                clear()
             else:
                 print(" You have already searched this room!")
         else:
@@ -631,13 +632,13 @@ def burial_room():
                 print(" You investigate the northern wall and find nothing but a suspicous recess in the wall that looks like a sceptre.")
         elif entrance_response.capitalize() == "Search":
             if room_data['burial_room']['searched'] == False:
+                clear()
                 print("\n You have found a torch!\n")
                 score = score + 2000
                 torch_light = torch_light + 3
                 room_data['burial_room'].update({'choices':[" 1. East", " 2. West", " 3. North", " 4. Search (Complete)", " 5. Escape", " 6. Open"]})
                 room_data['burial_room'].update({'searched': True})
                 sleep(3)
-                clear()
             else:
                 print(" You have already searched this room!")
         elif entrance_response.capitalize() == "Escape":
@@ -654,7 +655,7 @@ def burial_room():
                 print(" ====================")
                 entrance_response = input(" What Do You Do Adventurer?:\n\n")
                 if entrance_response.capitalize() == "Fight":
-                    print("\n You stand tall facing the advancing beast, the torch light reflecting back at you in its menacing eyes")
+                    print("\n You stand tall facing the advancing beast, the torch light reflecting back at you in its menacing eyes\n")
                     print(" ====================")
                     if weapon == "Jewelled Sword":
                         print("\n You drive your sword into the pharoahs head,\n once he stops moving you notice a sceptre in his hands\n")
@@ -669,7 +670,7 @@ def burial_room():
                         player = "dead"
                         game_over()
                 elif entrance_response.capitalize() == "Flee":
-                    print("\n You slowly back away from the terrifying creature as it gets ready to pounce you sprint toward the exit!")
+                    print("\n You slowly back away from the terrifying creature as it gets ready to pounce, you sprint toward the exit!")
                     print(" ====================")
                     for choice in room_data['center']['flee_choices']:
                         print(choice)
@@ -721,6 +722,7 @@ def antechamber():
         entrance_response = input(" What Do You Do Adventurer?:\n\n")
         if entrance_response.capitalize() == "Loot":
             if room_data['burial_room']['searched'] == False:
+                clear()
                 print(" You step towards the large pile of treasure thinking about how rich you are going to be.\n You feel a pulling on your leg, as you look down you notice the tripwire too late as the door slams shut behind you.\n The force extinguishes your torch and you are now trapped forever with the riches you always wanted.")
                 sleep(3)
                 clear()
@@ -735,6 +737,7 @@ def antechamber():
             winner()
         elif entrance_response.capitalize() == "Search":
             if room_data['antechamber']['searched'] == False:
+                clear()
                 print("\n Looking around your new surroundings, between you and the treasure you notice\n a very fine wire stretched across the room.\n")
                 room_data['antechamber'].update({'searched': True})
                 sleep(3)
