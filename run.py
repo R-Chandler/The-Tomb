@@ -13,13 +13,14 @@ score = 0
 """
 Instructions information to be called in the information screen
 """
-how_to = ["\n\n Welcome intrepid explorer, you have been searching for the burial place of\n an ancient Pharoah for a very long time. Recent discoveries lead you to a\n remote location just outside the Valley of the Kings in Egypt.\n Your hard work has rewarded with the sight of the sealed stone doors\n you had always dreamed of seeing.\n You pry the doors open and walk inside...",
- "\n\n THE TOMB is a text adventure game where your chocies will lead you to succeed\n in the discovery of the long lost Pharoah Raetis, or it can also become your tomb.\n\n",
-  " As you move through the tomb, a decription of the rooms will be displayed followed\n by a list of options you can do while in that area of the tomb.\n\n Enter the instruction as written (eg. 'East') to carry out that choice\n and progress through the tomb to find your fame and fortune.\n\n",
-   " Be aware that there are hidden options leading to special rewards\n so do not be afraid to search for secrets.\n",
-    " Be warned that your torch is also there to keep you safe,\n if the light goes out so do your chances of escaping the tomb.\n Keep a look out for opportunities to extend it's life as you explore.\n",
-     " Your score and level of torch light wil be tracked at the top of each room,\n find treasures to increase your score.\n\n"
-    "   GOOD LUCK!\n"]
+page_one = ["\n\n Welcome intrepid explorer, you have been searching for the burial place of\n an ancient Pharoah for a very long time. Recent discoveries lead you to a\n remote location just outside the Valley of the Kings in Egypt.\n Your hard work has rewarded with the sight of the sealed doors\n you had always dreamed of seeing. You pry the doors open and walk inside...",
+ "\n\n THE TOMB is a text adventure game where your chocies will lead you to succeed\n in the discovery of the long lost Pharoah Raetis,\n or it can also become your tomb.\n\n",
+  " As you move through the tomb, a decription of the rooms will be displayed\n followed by a list of options you can do while in that area of the tomb.\n\n Enter the instruction as written (eg. 'East/east') to carry out that choice\n and progress through the tomb to find your fame and fortune.\n\n"]
+
+page_two = ["\n\n Be aware that there are hidden options leading to special rewards\n so do not be afraid to search for secrets.\n",
+" Be warned that your torch is also there to keep you safe,\n if the light goes out so do your chances of escaping the tomb.\n Keep a look out for opportunities to extend it's life as you explore.\n",
+ " Your score and level of torch light wil be tracked at the top of each room,\n find treasures to increase your score.\n\n",
+  "   GOOD LUCK!\n"]
 
 
 
@@ -36,7 +37,7 @@ room_data = {
         'searched': False
     },
     'lower_left': {
-        'description': " A low hiss greets you as you step through the threshold. Coiled serpent motifs\n adorn the walls, their eyes gleaming with a sense of knowing.\n A winding path leads deeper into the chamber, guarded by stone snake statues\n that seem to slither in the shadows. The air is cool and filled with a faint aroma of ancient oils. In the center lies a mysterious pool reflecting the glow of a lone, suspended orb.",
+        'description': " A low hiss greets you as you step through the threshold. Coiled serpent motifs\n adorn the walls, their eyes gleaming with a sense of knowing.\n A winding path leads deeper into the chamber, guarded by stone snake statues\n that seem to slither in the shadows. The air is cool and filled with a faint\n aroma of ancient oils. In the center lies a mysterious pool reflecting the\n glow of a lone, suspended orb.",
         'choices': [" 1. North", " 2. East", " 3. Search"],
         'searched': False
     },
@@ -107,16 +108,19 @@ def player_id():
         else:
             clear()
             print(" ===================")
-            print(f"\n Welcome {player_name}, are you prepared to face the tomb?")
+            print(f" Welcome {player_name}, are you prepared to face the tomb?")
             instructions()
             break
 
 
 def instructions():
-    for steps in how_to:
-        print(steps)
+    for x in page_one:
+        print(x)
     input(" PRESS ENTER TO CONTINUE\n")
     clear()
+    for y in page_two:
+        print(y)
+    input(" PRESS ENTER TO CONTINUE\n")
     clear()
     entrance()
 
@@ -728,7 +732,7 @@ def antechamber():
                 clear()
                 game_over()
             else:
-                print(" Avoiding the tripwire, you cautiously move towards the treasure and begin looking through your new riches.")
+                print(" Avoiding the tripwire, you cautiously move towards the treasure\n and begin looking through your new riches.")
                 score = score + 10000
         elif entrance_response.capitalize() == "Escape":
             print(" You climb on top of the grand sarcophagus and reach for the slim opening on the ceiling,\n You manage to squeze through the gap and feel fresh air on your face for the first time in what feels like forever!\n")
