@@ -53,13 +53,14 @@ If i had more time to work on this project i would like to add these additional 
 - Pip for installing additional Python packages
 - GitHub for hosting the repository
 - GitPod was used as the coding environment
-- 
 ## Testing
 
 I carried out constant testing throughout the building of each function using print statements to ensure the correct output was being achieved for each outcome. Once the complete dungeon was built i carried out several run throughs to ensure the game was functioning correctly.
 
 ### Live Testing
 I carried out live testing after the application had been deployed to Heroku. Once the application was deployed to the final terminal size many issues regarding the readability were found and repaired. 
+
+I sent the link to two of my friends to test the application. Each friend had different experiences levels with text adventure games, I found that both sets of feedback were invaluable in fixing issues with the game and the wording of the game intructions.
 	
 ### Known Bugs
 
